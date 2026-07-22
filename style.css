@@ -2,7 +2,6 @@
   --ink: #16134d;
   --purple: #4b23c9;
   --lavender: #f2efff;
-  --muted: #6b6b86;
 }
 
 * {
@@ -96,7 +95,7 @@ button {
   place-items: center;
   border-radius: 50%;
   background: #e7284e;
-  color: #fff;
+  color: white;
   font-size: 10px;
   font-weight: 700;
 }
@@ -142,14 +141,10 @@ button {
   padding: 13px 22px;
   border-radius: 8px;
   background: var(--purple);
-  color: #fff;
+  color: white;
   box-shadow: 0 8px 15px #4b23c935;
   font-size: 14px;
   font-weight: 700;
-}
-
-.primary-button:hover {
-  transform: translateY(-2px);
 }
 
 .hero-image {
@@ -165,7 +160,6 @@ button {
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
-  object-position: center;
   mix-blend-mode: multiply;
   transform: rotate(-7deg) scale(1.1);
 }
@@ -182,7 +176,7 @@ button {
   justify-content: center;
   border-radius: 50%;
   background: var(--purple);
-  color: #fff;
+  color: white;
   text-align: center;
   font: 800 22px Outfit, sans-serif;
 }
@@ -201,7 +195,6 @@ button {
 .deal h2 {
   margin: 0;
   font: 700 27px Outfit, sans-serif;
-  letter-spacing: -0.03em;
 }
 
 .category-list {
@@ -224,13 +217,11 @@ button {
   background: #fff;
   font-size: 14px;
   font-weight: 700;
-  transition: 0.2s;
 }
 
 .category-list a:hover {
   border-color: #a896f3;
   background: var(--lavender);
-  transform: translateY(-3px);
 }
 
 .products {
@@ -261,12 +252,6 @@ button {
   border: 1px solid #eae8f3;
   border-radius: 13px;
   box-shadow: 0 5px 19px #22115c0b;
-  transition: 0.2s;
-}
-
-.product-card:hover {
-  box-shadow: 0 10px 25px #22115c1a;
-  transform: translateY(-5px);
 }
 
 .product-card img {
@@ -293,13 +278,9 @@ button {
   border: 0;
   border-radius: 7px;
   background: var(--purple);
-  color: #fff;
+  color: white;
   font-size: 13px;
   font-weight: 700;
-}
-
-.add-cart:hover {
-  background: #3716a3;
 }
 
 .deal {
@@ -312,7 +293,7 @@ button {
   gap: 20px;
   border-radius: 18px;
   background: linear-gradient(120deg, #28108c, #6b39e8);
-  color: #fff;
+  color: white;
 }
 
 .deal .eyebrow {
@@ -320,14 +301,12 @@ button {
 }
 
 .deal p:not(.eyebrow) {
-  margin-bottom: 0;
   color: #eeeaff;
 }
 
 .light {
-  background: #fff;
+  background: white;
   color: var(--purple);
-  white-space: nowrap;
 }
 
 footer {
@@ -336,11 +315,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   background: #130c3e;
-  color: #fff;
-}
-
-footer .logo span {
-  color: #b49cff;
+  color: white;
 }
 
 footer p {
@@ -388,10 +363,6 @@ footer p {
     gap: 12px;
   }
 
-  .product-card {
-    padding: 9px;
-  }
-
   .product-card img {
     height: 135px;
   }
@@ -406,6 +377,5 @@ footer p {
   footer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
   }
 }
