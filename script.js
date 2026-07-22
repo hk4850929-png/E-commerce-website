@@ -1,55 +1,31 @@
-// ===============================
-// ShopEase JavaScript
-// ===============================
+// Mobile Menu
+const menu = document.querySelector(".menu");
+const nav = document.querySelector("nav");
 
-// Add to Cart
+menu.addEventListener("click", () => {
+    nav.classList.toggle("active");
 
+    menu.innerHTML = nav.classList.contains("active")
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+});
+
+// Close menu on link click
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+});
+
+// Add to Cart Demo
+let count = 0;
 const cartCount = document.querySelector(".cart span");
-const buttons = document.querySelectorAll(".card button");
 
-let count = 2;
-
-buttons.forEach(button => {
+document.querySelectorAll(".product-card button").forEach(button => {
     button.addEventListener("click", () => {
         count++;
-        cartCount.innerText = count;
-
-        button.innerText = "Added ✓";
-        button.style.background = "#28a745";
-
-        setTimeout(() => {
-            button.innerText = "Add to Cart";
-            button.style.background = "#5b2dff";
-        }, 1200);
+        cartCount.textContent = count;
+        alert("✅ Product added to cart!");
     });
-});
-
-// Smooth Scroll
-
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function(e) {
-        e.preventDefault();
-
-        const id = this.getAttribute("href");
-
-        if(id !== "#"){
-            document.querySelector(id).scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
-// Header Shadow
-
-window.addEventListener("scroll", () => {
-
-    const header = document.querySelector("header");
-
-    if(window.scrollY > 20){
-        header.style.boxShadow = "0 10px 20px rgba(0,0,0,.15)";
-    }else{
-        header.style.boxShadow = "0 5px 15px rgba(0,0,0,.08)";
-    }
-
 });
