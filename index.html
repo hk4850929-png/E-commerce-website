@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopEase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase | E-Commerce Website</title>
 
-<link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
@@ -20,21 +19,28 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <header>
 
 <div class="logo">
+
 <i class="fa-solid fa-bag-shopping"></i>
+
 <h2>ShopEase</h2>
+
 </div>
 
 <nav>
 
-<a href="#">Home</a>
+<ul class="nav-links">
 
-<a href="#">Categories</a>
+<li><a href="#">Home</a></li>
 
-<a href="#">Shop</a>
+<li><a href="#categories">Categories</a></li>
 
-<a href="#">Deals</a>
+<li><a href="#products">Shop</a></li>
 
-<a href="#">About</a>
+<li><a href="#offers">Deals</a></li>
+
+<li><a href="#footer">About</a></li>
+
+</ul>
 
 </nav>
 
@@ -42,13 +48,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <i class="fa-solid fa-magnifying-glass"></i>
 
-<i class="fa-solid fa-user"></i>
+<i class="fa-regular fa-user"></i>
 
 <div class="cart">
 
 <i class="fa-solid fa-cart-shopping"></i>
 
-<span>2</span>
+<span>0</span>
+
+</div>
+
+<div class="menu">
+
+<i class="fa-solid fa-bars"></i>
 
 </div>
 
@@ -64,57 +76,78 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <h4>SUMMER SALE</h4>
 
-<h1>Discover the Best Products Online</h1>
+<h1>
+
+Discover the Best Products Online
+
+</h1>
 
 <p>
+
 Shop top quality products at amazing prices.
+
 </p>
 
-<button>Shop Now</button>
+<a href="#products" class="btn">
+
+Shop Now
+
+</a>
 
 </div>
 
 <div class="hero-image">
 
-<div class="offer">40% OFF</div>
+<img src="images/headphone.png" alt="Headphones">
 
-<img src="headphone.png" alt="Headphone">
+<div class="discount">
+
+40% OFF
+
+</div>
 
 </div>
 
 </section>
 
-<!-- ================= CATEGORY ================= -->
+<!-- ================= CATEGORIES ================= -->
 
-<section class="categories">
+<section id="categories" class="categories">
 
 <h2>Shop by Categories</h2>
 
-<div class="category-box">
+<div class="category-grid">
 
-<div class="item">
-<i class="fa-solid fa-tv"></i>
-<p>Electronics</p>
+<div class="category">
+
+<img src="images/electronics.png">
+
+<h3>Electronics</h3>
+
 </div>
 
-<div class="item">
-<i class="fa-solid fa-shirt"></i>
-<p>Fashion</p>
+<div class="category">
+
+<img src="images/fashion.png">
+
+<h3>Fashion</h3>
+
 </div>
 
-<div class="item">
-<i class="fa-solid fa-house"></i>
-<p>Home</p>
+<div class="category">
+
+<img src="images/home.png">
+
+<h3>Home</h3>
+
 </div>
 
-<div class="item">
-<i class="fa-solid fa-gift"></i>
-<p>Beauty</p>
-</div>
+<div class="category">
 
-<div class="item">
-<i class="fa-solid fa-football"></i>
-<p>Sports</p>
+<img src="images/sports.png">
+
+<h3>Sports</h3>
+
 </div>
 
 </div>
@@ -123,55 +156,63 @@ Shop top quality products at amazing prices.
 
 <!-- ================= PRODUCTS ================= -->
 
-<section class="products">
+<section id="products" class="products">
 
 <h2>Best Selling Products</h2>
 
 <div class="product-grid">
 
-<div class="card">
+<!-- Product 1 -->
 
-<img src="watch.png">
+<div class="product-card">
+
+<img src="images/watch.png">
 
 <h3>Smart Watch</h3>
 
-<h4>$49.99</h4>
+<p>$49.99</p>
 
 <button>Add to Cart</button>
 
 </div>
 
-<div class="card">
+<!-- Product 2 -->
 
-<img src="wireless earbuds.png">
+<div class="product-card">
+
+<img src="images/earbuds.png">
 
 <h3>Wireless Earbuds</h3>
 
-<h4>$29.99</h4>
+<p>$29.99</p>
 
 <button>Add to Cart</button>
 
 </div>
 
-<div class="card">
+<!-- Product 3 -->
 
-<img src="bag.png">
+<div class="product-card">
+
+<img src="images/backpack.png">
 
 <h3>Backpack</h3>
 
-<h4>$39.99</h4>
+<p>$39.99</p>
 
 <button>Add to Cart</button>
 
 </div>
 
-<div class="card">
+<!-- Product 4 -->
 
-<img src="shoes.png">
+<div class="product-card">
+
+<img src="images/shoes.png">
 
 <h3>Sneakers</h3>
 
-<h4>$59.99</h4>
+<p>$59.99</p>
 
 <button>Add to Cart</button>
 
@@ -181,11 +222,95 @@ Shop top quality products at amazing prices.
 
 </section>
 
+<!-- ================= OFFER ================= -->
+
+<section id="offers" class="offer">
+
+<div class="offer-content">
+
+<h2>Special Offer</h2>
+
+<h1>UP TO 50% OFF</h1>
+
+<p>
+
+Limited time offer on selected products.
+
+</p>
+
+<a href="#products" class="btn">
+
+Shop Now
+
+</a>
+
+</div>
+
+</section>
+
 <!-- ================= FOOTER ================= -->
 
-<footer>
+<footer id="footer">
 
-<p>© 2026 ShopEase. All Rights Reserved.</p>
+<div class="footer-grid">
+
+<div>
+
+<h2>ShopEase</h2>
+
+<p>
+
+Your trusted online shopping destination.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li>Home</li>
+
+<li>Shop</li>
+
+<li>Deals</li>
+
+<li>Contact</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Follow Us</h3>
+
+<div class="social">
+
+<i class="fab fa-facebook"></i>
+
+<i class="fab fa-instagram"></i>
+
+<i class="fab fa-twitter"></i>
+
+<i class="fab fa-linkedin"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 ShopEase. All Rights Reserved.
+
+</p>
 
 </footer>
 
