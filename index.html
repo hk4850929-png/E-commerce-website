@@ -1,208 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase | Best Products Online</title>
 
-<title>ShopEase</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <header class="header">
+    <a class="logo" href="#home"><span>▣</span> ShopEase</a>
+
+    <nav class="nav">
+      <a class="active" href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Shop</a>
+      <a href="#deals">Deals</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button aria-label="Search">⌕</button>
+      <button aria-label="Account">♙</button>
+      <button class="cart-button" aria-label="Shopping cart">
+        🛒 <span id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">SUMMER SALE</p>
+        <h1>Discover the Best<br />Products Online</h1>
+        <p>Shop top quality products at amazing prices.</p>
+        <a class="primary-button" href="#products">Shop now</a>
+      </div>
+
+      <div class="hero-image">
+        <span class="sale-badge">40%<small>OFF</small></span>
+        <img
+          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85"
+          alt="Black over-ear headphones"
+        />
+      </div>
+    </section>
+
+    <section class="categories section" id="categories">
+      <h2>Shop by Categories</h2>
+
+      <div class="category-list">
+        <a href="#products">💻 <span>Electronics</span></a>
+        <a href="#products">👕 <span>Fashion</span></a>
+        <a href="#products">⌂ <span>Home</span></a>
+        <a href="#products">✦ <span>Beauty</span></a>
+        <a href="#products">⚽ <span>Sports</span></a>
+      </div>
+    </section>
+
+    <section class="section products" id="products">
+      <div class="section-heading">
+        <h2>Best Selling Products</h2>
+        <a href="#products">View all →</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Smart watch" />
+          <h3>Smart Watch</h3>
+          <p>$49.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80" alt="Wireless earbuds" />
+          <h3>Wireless Earbuds</h3>
+          <p>$29.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Black backpack" />
+          <h3>Backpack</h3>
+          <p>$39.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Red sneakers" />
+          <h3>Sneakers</h3>
+          <p>$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="deal" id="deals">
+      <div>
+        <p class="eyebrow">LIMITED TIME OFFER</p>
+        <h2>Save more. Shop smarter.</h2>
+        <p>Get 40% off selected audio products this week.</p>
+      </div>
+
+      <a class="primary-button light" href="#products">Explore deals</a>
+    </section>
+  </main>
+
+  <footer id="about">
+    <a class="logo" href="#home"><span>▣</span> ShopEase</a>
+    <p>© 2026 ShopEase. Your everyday online store.</p>
+  </footer>
 
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-<i class="fa-solid fa-bag-shopping"></i>
-<span>ShopEase</span>
-</div>
-
-<ul class="nav-links">
-
-<li><a href="#">Home</a></li>
-<li><a href="#">Categories</a></li>
-<li><a href="#">Shop</a></li>
-<li><a href="#">Deals</a></li>
-<li><a href="#">About</a></li>
-
-</ul>
-
-<div class="icons">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-<i class="fa-solid fa-user"></i>
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-</div>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h4>SUMMER SALE</h4>
-
-<h1>Discover the Best Products Online</h1>
-
-<p>
-
-Shop top quality products at affordable prices.
-
-</p>
-
-<button>Shop Now</button>
-
-</div>
-
-<div class="hero-image">
-
-<img src="headphone.png" alt="Headphone">
-
-<div class="offer">
-
-40% OFF
-
-</div>
-
-</div>
-
-</section>
-
-<section class="categories">
-
-<h2>Shop by Categories</h2>
-
-<div class="category-box">
-
-<div>
-
-<i class="fa-solid fa-laptop"></i>
-
-<p>Electronics</p>
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-shirt"></i>
-
-<p>Fashion</p>
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-house"></i>
-
-<p>Home</p>
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-heart"></i>
-
-<p>Beauty</p>
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-football"></i>
-
-<p>Sports</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="products">
-
-<h2>Best Selling Products</h2>
-
-<div class="product-grid">
-
-<div class="card">
-
-<img src="watch.png">
-
-<h3>Smart Watch</h3>
-
-<p>$49.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<div class="card">
-
-<img src="earbuds.png">
-
-<h3>Wireless Earbuds</h3>
-
-<p>$29.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<div class="card">
-
-<img src="bag.png">
-
-<h3>Backpack</h3>
-
-<p>$39.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<div class="card">
-
-<img src="shoes.png">
-
-<h3>Sneakers</h3>
-
-<p>$59.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 ShopEase. All Rights Reserved.
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
