@@ -1,30 +1,36 @@
-/* ===========================
+/* ===============================
    GOOGLE FONT
-=========================== */
+================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+/* ===============================
+   RESET
+================================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f5f5ff;
+    background:#f6f7fb;
     color:#222;
+    overflow-x:hidden;
 }
 
-/* ===========================
+/* ===============================
    NAVBAR
-=========================== */
+================================= */
 
 header{
+    position:fixed;
+    top:0;
+    left:0;
     width:100%;
     background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
     z-index:1000;
 }
 
@@ -38,12 +44,12 @@ header{
 }
 
 .logo{
+    font-size:30px;
+    font-weight:700;
+    color:#6C3BFF;
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:26px;
-    font-weight:700;
-    color:#5d2dfd;
 }
 
 .logo i{
@@ -51,9 +57,13 @@ header{
 }
 
 .nav-links{
-    display:flex;
     list-style:none;
+    display:flex;
     gap:30px;
+}
+
+.nav-links li{
+    list-style:none;
 }
 
 .nav-links a{
@@ -64,7 +74,7 @@ header{
 }
 
 .nav-links a:hover{
-    color:#5d2dfd;
+    color:#6C3BFF;
 }
 
 .icons{
@@ -79,23 +89,23 @@ header{
 }
 
 .icons i:hover{
-    color:#5d2dfd;
+    color:#6C3BFF;
 }
 
-/* ===========================
+/* ===============================
    HERO
-=========================== */
+================================= */
 
 .hero{
     width:90%;
-    margin:50px auto;
+    margin:130px auto 70px;
+    background:#fff;
+    border-radius:25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#fff;
-    border-radius:20px;
-    padding:50px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    padding:60px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
 
 .hero-text{
@@ -103,35 +113,36 @@ header{
 }
 
 .hero-text h4{
-    color:#5d2dfd;
-    margin-bottom:10px;
+    color:#6C3BFF;
+    margin-bottom:15px;
+    font-size:18px;
 }
 
 .hero-text h1{
-    font-size:48px;
+    font-size:55px;
     line-height:1.2;
     margin-bottom:20px;
 }
 
 .hero-text p{
     color:#666;
+    line-height:1.8;
     margin-bottom:30px;
-    line-height:1.7;
 }
 
 .hero-text button{
-    background:#5d2dfd;
+    padding:15px 40px;
+    background:#6C3BFF;
     color:#fff;
     border:none;
-    padding:14px 35px;
     border-radius:10px;
+    font-size:17px;
     cursor:pointer;
-    font-size:16px;
     transition:.3s;
 }
 
 .hero-text button:hover{
-    background:#4420d8;
+    background:#4d1ff0;
 }
 
 .hero-image{
@@ -142,159 +153,178 @@ header{
 
 .hero-image img{
     width:100%;
-    max-width:350px;
+    max-width:360px;
+    transition:.5s;
+}
+
+.hero-image img:hover{
+    transform:scale(1.05);
 }
 
 .offer{
     position:absolute;
     top:20px;
-    right:10px;
-    background:#5d2dfd;
-    color:#fff;
-    padding:15px;
-    border-radius:50%;
+    right:20px;
     width:90px;
     height:90px;
+    border-radius:50%;
+    background:#6C3BFF;
+    color:#fff;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-weight:bold;
+    align-items:center;
+    font-weight:700;
     font-size:18px;
 }
 
-/* ===========================
+/* ===============================
    CATEGORIES
-=========================== */
+================================= */
 
 .categories{
     width:90%;
     margin:auto;
-    margin-bottom:60px;
+    padding:20px 0 60px;
 }
 
 .categories h2{
-    margin-bottom:25px;
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
 }
 
 .category-box{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    gap:20px;
+    gap:25px;
 }
 
 .category-box div{
     background:#fff;
-    border-radius:15px;
-    padding:25px;
+    border-radius:20px;
+    padding:30px;
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.4s;
     cursor:pointer;
 }
 
 .category-box div:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 }
 
 .category-box i{
-    font-size:35px;
-    color:#5d2dfd;
-    margin-bottom:10px;
+    font-size:38px;
+    color:#6C3BFF;
+    margin-bottom:15px;
 }
-/* ===========================
+
+.category-box p{
+    font-weight:600;
+       }
+/* ===============================
    PRODUCTS
-=========================== */
+================================= */
 
 .products{
     width:90%;
-    margin:60px auto;
+    margin:70px auto;
 }
 
 .products h2{
-    margin-bottom:30px;
-    font-size:32px;
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
 }
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
 
 .card{
     background:#fff;
-    border-radius:18px;
-    padding:20px;
+    border-radius:20px;
+    padding:25px;
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .card img{
-    width:170px;
-    height:170px;
+    width:180px;
+    height:180px;
     object-fit:contain;
-    margin-bottom:15px;
+    transition:.4s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
 }
 
 .card h3{
-    margin-bottom:10px;
-    font-size:20px;
+    margin:18px 0 10px;
+    font-size:22px;
 }
 
 .card p{
-    color:#5d2dfd;
     font-size:22px;
-    font-weight:600;
-    margin-bottom:15px;
+    font-weight:700;
+    color:#6C3BFF;
+    margin-bottom:18px;
 }
 
 .card button{
     width:100%;
-    padding:12px;
-    background:#5d2dfd;
-    color:#fff;
+    padding:14px;
     border:none;
     border-radius:10px;
+    background:#6C3BFF;
+    color:#fff;
+    font-size:16px;
     cursor:pointer;
     transition:.3s;
 }
 
 .card button:hover{
-    background:#4321cf;
+    background:#4d1ff0;
 }
 
-/* ===========================
+/* ===============================
    FOOTER
-=========================== */
+================================= */
 
 footer{
-    background:#1b1b3a;
+    background:#111827;
     color:#fff;
-    text-align:center;
-    padding:25px;
-    margin-top:60px;
+    padding:50px 10%;
+    margin-top:80px;
 }
 
 footer p{
+    text-align:center;
     font-size:16px;
+    letter-spacing:.5px;
 }
 
-/* ===========================
+/* ===============================
    RESPONSIVE
-=========================== */
+================================= */
 
-@media(max-width:992px){
+@media(max-width:991px){
 
 .hero{
     flex-direction:column;
     text-align:center;
-    gap:40px;
+    padding:40px;
 }
 
 .hero-text{
@@ -303,14 +333,15 @@ footer p{
 
 .hero-image{
     width:100%;
+    margin-top:30px;
+}
+
+.hero-text h1{
+    font-size:42px;
 }
 
 .category-box{
     grid-template-columns:repeat(3,1fr);
-}
-
-.product-grid{
-    grid-template-columns:repeat(2,1fr);
 }
 
 }
@@ -319,16 +350,17 @@ footer p{
 
 .navbar{
     flex-direction:column;
-    gap:20px;
+    gap:18px;
 }
 
 .nav-links{
     flex-wrap:wrap;
     justify-content:center;
-    gap:15px;
+    gap:18px;
 }
 
 .hero{
+    margin-top:170px;
     padding:30px;
 }
 
@@ -336,30 +368,34 @@ footer p{
     font-size:34px;
 }
 
-.hero-image img{
-    width:260px;
-}
-
-.offer{
-    width:70px;
-    height:70px;
-    font-size:15px;
+.hero-text button{
+    width:100%;
 }
 
 .category-box{
     grid-template-columns:repeat(2,1fr);
 }
 
-.product-grid{
-    grid-template-columns:1fr;
+.offer{
+    width:70px;
+    height:70px;
+    font-size:14px;
 }
 
 }
 
-@media(max-width:480px){
+@media(max-width:576px){
 
 .logo{
-    font-size:22px;
+    font-size:24px;
+}
+
+.hero{
+    border-radius:18px;
+}
+
+.hero-text h4{
+    font-size:16px;
 }
 
 .hero-text h1{
@@ -370,21 +406,22 @@ footer p{
     font-size:14px;
 }
 
-.hero-text button{
-    width:100%;
-}
-
 .category-box{
     grid-template-columns:1fr;
 }
 
-.icons{
-    gap:15px;
+.card img{
+    width:150px;
+    height:150px;
 }
 
-.card img{
-    width:140px;
-    height:140px;
+.products h2,
+.categories h2{
+    font-size:30px;
+}
+
+footer{
+    padding:30px 20px;
 }
 
 }
