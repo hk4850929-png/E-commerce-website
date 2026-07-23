@@ -1,629 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurora | Future Shopping</title>
-
-  <style>
-    :root {
-      --bg: #08081a;
-      --surface: rgba(21, 21, 53, 0.72);
-      --surface-solid: #151535;
-      --text: #f8f7ff;
-      --muted: #aaa8c8;
-      --purple: #8b5cf6;
-      --pink: #ef4cff;
-      --cyan: #2ee9ff;
-      --line: rgba(255,255,255,.13);
-    }
-
-    body.light {
-      --bg: #f5f5ff;
-      --surface: rgba(255, 255, 255, .8);
-      --surface-solid: #ffffff;
-      --text: #17152a;
-      --muted: #69657d;
-      --line: rgba(28, 20, 75, .14);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      transition: .3s;
-    }
-
-    body::before, body::after {
-      content: "";
-      position: fixed;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: .22;
-      z-index: -1;
-    }
-
-    body::before {
-      background: #7c3aed;
-      top: -100px;
-      left: -100px;
-    }
-
-    body::after {
-      background: #ec4899;
-      bottom: -100px;
-      right: -100px;
-    }
-
-    header {
-      width: min(1180px, 92%);
-      margin: 20px auto;
-      padding: 15px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      backdrop-filter: blur(14px);
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      background: linear-gradient(90deg, var(--cyan), var(--pink));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    nav { display: flex; gap: 20px; }
-
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    nav a:hover { color: var(--cyan); }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .round-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--surface-solid);
-      color: var(--text);
-      border: 1px solid var(--line);
-      font-size: 17px;
-    }
-
-    .cart-number {
-      background: var(--pink);
-      color: white;
-      border-radius: 20px;
-      padding: 4px 8px;
-      font-size: 12px;
-      position: absolute;
-      margin-left: -9px;
-      margin-top: -8px;
-    }
-
-    .hero {
-      width: min(1180px, 92%);
-      min-height: 500px;
-      margin: 55px auto;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 35px;
-    }
-
-    .eyebrow {
-      color: var(--cyan);
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: .98;
-      max-width: 700px;
-    }
-
-    h1 span {
-      background: linear-gradient(100deg, var(--cyan), #a78bfa, var(--pink));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 22px 0;
-    }
-
-    .primary-btn {
-      padding: 14px 22px;
-      border-radius: 10px;
-      background: linear-gradient(100deg, var(--purple), var(--pink));
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 10px 25px rgba(180, 50, 255, .32);
-    }
-
-    .primary-btn:hover { transform: translateY(-2px); }
-
-    .hero-visual {
-      height: 390px;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-circle {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #a78bfa, #5924c7 45%, #151535 70%);
-      box-shadow: 0 0 80px #7439e7;
-      position: absolute;
-    }
-
-    .hero-visual img {
-      width: 310px;
-      height: 310px;
-      object-fit: contain;
-      z-index: 1;
-      transform: rotate(-12deg);
-      filter: drop-shadow(0 25px 18px rgba(0,0,0,.4));
-    }
-
-    .floating-card {
-      z-index: 2;
-      position: absolute;
-      padding: 13px 16px;
-      background: rgba(12, 10, 40, .8);
-      border: 1px solid rgba(255,255,255,.2);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      color: white;
-      font-size: 13px;
-    }
-
-    .floating-card b { color: var(--cyan); display: block; margin-bottom: 4px; }
-    .top-card { top: 40px; right: 5px; }
-    .bottom-card { bottom: 33px; left: 5px; }
-
-    .service-row {
-      width: min(1180px, 92%);
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .service {
-      padding: 17px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .service b { color: var(--text); display: block; margin-bottom: 5px; }
-
-    .shop-section {
-      width: min(1180px, 92%);
-      margin: 80px auto;
-    }
-
-    .shop-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    h2 { font-size: 32px; }
-    h2 span { color: var(--pink); }
-
-    .search-box {
-      padding: 11px 14px;
-      color: var(--text);
-      background: var(--surface-solid);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      outline: none;
-      width: 230px;
-    }
-
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .filter {
-      padding: 9px 15px;
-      border-radius: 20px;
-      background: transparent;
-      border: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .filter.active, .filter:hover {
-      background: var(--purple);
-      color: white;
-      border-color: var(--purple);
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .product {
-      overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      transition: .25s;
-    }
-
-    .product:hover {
-      transform: translateY(-8px);
-      border-color: var(--purple);
-      box-shadow: 0 18px 35px rgba(0,0,0,.22);
-    }
-
-    .image-area {
-      height: 210px;
-      position: relative;
-      background: linear-gradient(135deg, #29205b, #11112f);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .image-area img {
-      width: 88%;
-      height: 88%;
-      object-fit: contain;
-    }
-
-    .badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 5px 9px;
-      font-size: 11px;
-      border-radius: 20px;
-      background: var(--pink);
-      color: white;
-      font-weight: bold;
-    }
-
-    .heart {
-      position: absolute;
-      top: 11px;
-      right: 11px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.18);
-      color: white;
-    }
-
-    .heart.liked { color: #ff4f83; background: white; }
-
-    .product-info { padding: 16px; }
-    .category { font-size: 11px; color: var(--cyan); text-transform: uppercase; }
-    .product h3 { margin: 7px 0; font-size: 17px; }
-    .rating { color: #ffd84d; font-size: 13px; }
-    .price-row {
-      margin-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .price { font-weight: bold; color: var(--text); }
-    .add-btn {
-      padding: 9px 12px;
-      border-radius: 8px;
-      background: var(--purple);
-      color: white;
-      font-weight: bold;
-      font-size: 12px;
-    }
-
-    .cart-panel {
-      position: fixed;
-      top: 0;
-      right: -390px;
-      width: min(370px, 92vw);
-      height: 100vh;
-      padding: 28px;
-      background: #13132f;
-      color: white;
-      z-index: 50;
-      transition: .3s;
-      box-shadow: -10px 0 35px rgba(0,0,0,.3);
-    }
-
-    .cart-panel.open { right: 0; }
-    .cart-panel h2 { margin-bottom: 22px; }
-    .cart-item {
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255,255,255,.16);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .empty { color: #aaa8c8; margin-top: 50px; text-align: center; }
-
-    footer {
-      padding: 35px;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-    }
-
-    @media (max-width: 850px) {
-      nav { display: none; }
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero p { margin-inline: auto; }
-      .hero-visual { order: -1; height: 310px; }
-      .hero-circle { width: 250px; height: 250px; }
-      .hero-visual img { width: 250px; height: 250px; }
-      .service-row, .products { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 520px) {
-      .shop-top { align-items: flex-start; flex-direction: column; }
-      .search-box { width: 100%; }
-      .service-row, .products { grid-template-columns: 1fr; }
-      .hero { margin-top: 30px; }
-    }
-  </style>
+  <title>ShopEase | Best Products Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header>
-    <div class="logo">AUR<span>O</span>RA</div>
-
-    <nav>
-      <a href="#home">Explore</a>
-      <a href="#shop">Collection</a>
-      <a href="#shop">New Drops</a>
+  <header class="header">
+    <a class="logo" href="#home"><span>▣</span> ShopEase</a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Shop</a><a href="#deals">Deals</a><a href="#about">About</a>
     </nav>
-
     <div class="header-actions">
-      <button class="round-btn" onclick="toggleTheme()" title="Change theme">☼</button>
-      <button class="round-btn" onclick="toggleCart()" title="Open cart">
-        🛒<span class="cart-number" id="cartCount">0</span>
-      </button>
+      <button aria-label="Search">⌕</button><button aria-label="Account">♙</button>
+      <button class="cart-button" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></button>
     </div>
   </header>
 
-  <section class="hero" id="home">
-    <div>
-      <div class="eyebrow">◈ THE FUTURE OF SHOPPING</div>
-      <h1>Products with <span>personality.</span></h1>
-      <p>
-        Aurora is a curated store for people who enjoy bold design,
-        modern technology, and everyday products that feel exceptional.
-      </p>
-      <button class="primary-btn" onclick="document.getElementById('shop').scrollIntoView()">
-        Explore Collection →
-      </button>
-    </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">SUMMER SALE</p>
+        <h1>Discover the Best<br />Products Online</h1>
+        <p>Shop top quality products at amazing prices.</p>
+        <a class="primary-button" href="#products">Shop now</a>
+      </div>
+      <div class="hero-image">
+        <span class="sale-badge">40%<small>OFF</small></span>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Black over-ear headphones" />
+      </div>
+    </section>
 
-    <div class="hero-visual">
-      <div class="hero-circle"></div>
-      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Wireless headphones">
-      <div class="floating-card top-card"><b>4.9 ★ Rating</b>Loved by 2,500+ customers</div>
-      <div class="floating-card bottom-card"><b>30% OFF</b>Limited time audio drop</div>
-    </div>
-  </section>
+    <section class="categories section" id="categories">
+      <h2>Shop by Categories</h2>
+      <div class="category-list">
+        <a href="#products">💻 <span>Electronics</span></a><a href="#products">👕 <span>Fashion</span></a><a href="#products">⌂ <span>Home</span></a><a href="#products">✦ <span>Beauty</span></a><a href="#products">⚽ <span>Sports</span></a>
+      </div>
+    </section>
 
-  <section class="service-row">
-    <div class="service"><b>✦ Curated quality</b>Products chosen with care.</div>
-    <div class="service"><b>⚡ Quick dispatch</b>Orders leave within 24 hours.</div>
-    <div class="service"><b>◌ Easy returns</b>Simple 30-day return policy.</div>
-    <div class="service"><b>⌁ Secure checkout</b>Your payments stay protected.</div>
-  </section>
+    <section class="section products" id="products">
+      <div class="section-heading"><h2>Best Selling Products</h2><a href="#products">View all →</a></div>
+      <div class="product-grid">
+        <article class="product-card"><img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Smart watch" /><h3>Smart Watch</h3><p>$49.99</p><button class="add-cart">Add to Cart</button></article>
+        <article class="product-card"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80" alt="Wireless earbuds" /><h3>Wireless Earbuds</h3><p>$29.99</p><button class="add-cart">Add to Cart</button></article>
+        <article class="product-card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Black backpack" /><h3>Backpack</h3><p>$39.99</p><button class="add-cart">Add to Cart</button></article>
+        <article class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Red sneakers" /><h3>Sneakers</h3><p>$59.99</p><button class="add-cart">Add to Cart</button></article>
+      </div>
+    </section>
 
-  <main class="shop-section" id="shop">
-    <div class="shop-top">
-      <h2>Fresh <span>finds.</span></h2>
-      <input class="search-box" id="searchInput" oninput="searchProducts()" placeholder="Search products..." />
-    </div>
-
-    <div class="filters">
-      <button class="filter active" onclick="filterProducts('all', this)">All products</button>
-      <button class="filter" onclick="filterProducts('audio', this)">Audio</button>
-      <button class="filter" onclick="filterProducts('wearables', this)">Wearables</button>
-      <button class="filter" onclick="filterProducts('style', this)">Style</button>
-      <button class="filter" onclick="filterProducts('workspace', this)">Workspace</button>
-    </div>
-
-    <div class="products" id="productGrid">
-      <article class="product audio" data-name="Nova headphones">
-        <div class="image-area">
-          <span class="badge">TRENDING</span>
-          <button class="heart" onclick="likeProduct(this)">♥</button>
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headphones">
-        </div>
-        <div class="product-info">
-          <p class="category">Audio</p>
-          <h3>Nova Headphones</h3>
-          <p class="rating">★★★★★ <span>(126)</span></p>
-          <div class="price-row">
-            <p class="price">$79.00</p>
-            <button class="add-btn" onclick="addToCart('Nova Headphones', 79)">Add +</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product wearables" data-name="orbit smartwatch">
-        <div class="image-area">
-          <span class="badge">NEW</span>
-          <button class="heart" onclick="likeProduct(this)">♥</button>
-          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80" alt="Smartwatch">
-        </div>
-        <div class="product-info">
-          <p class="category">Wearables</p>
-          <h3>Orbit Smartwatch</h3>
-          <p class="rating">★★★★★ <span>(94)</span></p>
-          <div class="price-row">
-            <p class="price">$109.00</p>
-            <button class="add-btn" onclick="addToCart('Orbit Smartwatch', 109)">Add +</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product style" data-name="aero sneakers">
-        <div class="image-area">
-          <span class="badge">-20%</span>
-          <button class="heart" onclick="likeProduct(this)">♥</button>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Sneakers">
-        </div>
-        <div class="product-info">
-          <p class="category">Style</p>
-          <h3>Aero Sneakers</h3>
-          <p class="rating">★★★★☆ <span>(79)</span></p>
-          <div class="price-row">
-            <p class="price">$65.00</p>
-            <button class="add-btn" onclick="addToCart('Aero Sneakers', 65)">Add +</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product workspace" data-name="focus desk lamp">
-        <div class="image-area">
-          <button class="heart" onclick="likeProduct(this)">♥</button>
-          <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80" alt="Desk lamp">
-        </div>
-        <div class="product-info">
-          <p class="category">Workspace</p>
-          <h3>Focus Desk Lamp</h3>
-          <p class="rating">★★★★★ <span>(62)</span></p>
-          <div class="price-row">
-            <p class="price">$42.00</p>
-            <button class="add-btn" onclick="addToCart('Focus Desk Lamp', 42)">Add +</button>
-          </div>
-        </div>
-      </article>
-    </div>
+    <section class="deal" id="deals"><div><p class="eyebrow">LIMITED TIME OFFER</p><h2>Save more. Shop smarter.</h2><p>Get 40% off selected audio products this week.</p></div><a class="primary-button light" href="#products">Explore deals</a></section>
   </main>
 
-  <aside class="cart-panel" id="cartPanel">
-    <button class="round-btn" onclick="toggleCart()">✕</button>
-    <h2>Your cart</h2>
-    <div id="cartItems"><p class="empty">Your cart is waiting for something special.</p></div>
-    <h3 id="cartTotal" style="margin-top:25px;">Total: $0.00</h3>
+  <footer id="about"><a class="logo" href="#home"><span>▣</span> ShopEase</a><p>© 2026 ShopEase. Your everyday online store.</p></footer>
+  <aside class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-drawer__header"><h2>Your Cart</h2><button class="close-cart" type="button" aria-label="Close cart">&times;</button></div>
+    <div class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+    <div class="cart-drawer__footer"><div class="cart-total"><span>Total</span><strong>$0.00</strong></div><button class="checkout-button" type="button" disabled>Confirm Order</button></div>
   </aside>
-
-  <footer>© 2026 Aurora Store · Made for a standout e-commerce experience.</footer>
-
-  <script>
-    let cart = [];
-    let activeCategory = "all";
-
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-    }
-
-    function toggleCart() {
-      document.getElementById("cartPanel").classList.toggle("open");
-    }
-
-    function likeProduct(button) {
-      button.classList.toggle("liked");
-    }
-
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      document.getElementById("cartCount").textContent = cart.length;
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartItems = document.getElementById("cartItems");
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-      if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="empty">Your cart is waiting for something special.</p>';
-      } else {
-        cartItems.innerHTML = cart.map(item => `
-          <div class="cart-item">
-            <span>${item.name}</span>
-            <b>$${item.price.toFixed(2)}</b>
-          </div>
-        `).join("");
-      }
-
-      document.getElementById("cartTotal").textContent = `Total: $${total.toFixed(2)}`;
-    }
-
-    function filterProducts(category, button) {
-      activeCategory = category;
-
-      document.querySelectorAll(".filter").forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      applyFilters();
-    }
-
-    function searchProducts() {
-      applyFilters();
-    }
-
-    function applyFilters() {
-      const search = document.getElementById("searchInput").value.toLowerCase();
-      const products = document.querySelectorAll(".product");
-
-      products.forEach(product => {
-        const categoryMatch = activeCategory === "all" || product.classList.contains(activeCategory);
-        const searchMatch = product.dataset.name.includes(search);
-        product.style.display = categoryMatch && searchMatch ? "block" : "none";
-      });
-    }
-  </script>
+  <div class="overlay" aria-hidden="true"></div>
+  <section class="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-title" hidden>
+    <div class="confirmation-modal__content"><div class="success-icon">&#10003;</div><h2 id="confirmation-title">Confirm your Order</h2><p>Your order is ready to be placed. We&rsquo;ll get it packed and on its way soon.</p><div class="confirmation-actions"><button class="cancel-order" type="button">Keep Shopping</button><button class="place-order" type="button">Place Order</button></div></div>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>
