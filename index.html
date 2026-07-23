@@ -1,320 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEase | E-Commerce Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase | E-Commerce</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7fb;
+      color: #17172a;
+    }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    header {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    .logo { color: #3217af; font-size: 24px; font-weight: bold; }
+    nav a {
+      color: #222;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 14px;
+    }
+    nav a:hover { color: #3217af; }
+    .cart { font-weight: bold; color: #3217af; }
+
+    .hero {
+      min-height: 410px;
+      padding: 60px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(135deg, #eeeaff, #ffffff);
+    }
+
+    .hero-text { max-width: 500px; }
+    .tag { color: #4c24d9; font-weight: bold; font-size: 14px; }
+    h1 { font-size: 48px; margin: 12px 0; line-height: 1.1; }
+    .hero p { color: #555; line-height: 1.6; margin-bottom: 22px; }
+
+    .btn {
+      border: 0;
+      padding: 13px 22px;
+      border-radius: 7px;
+      background: #3217af;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover { background: #211078; }
+
+    .hero-image {
+      position: relative;
+      width: 350px;
+    }
+    .hero-image img {
+      width: 100%;
+      border-radius: 50%;
+      background: #e3ddff;
+    }
+    .offer {
+      position: absolute;
+      top: 15px;
+      right: 5px;
+      padding: 15px 10px;
+      background: #3217af;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 25px 8%;
+      background: white;
+    }
+    .feature {
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+
+    main { padding: 45px 8%; }
+    .section-title { font-size: 28px; margin-bottom: 20px; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .filter {
+      border: 1px solid #ddd;
+      background: white;
+      padding: 9px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .filter.active, .filter:hover {
+      background: #3217af;
+      color: white;
+      border-color: #3217af;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+    .product-card:hover { transform: translateY(-6px); }
+    .product-card img {
+      width: 100%;
+      height: 175px;
+      object-fit: contain;
+      background: #f4f3fb;
+      border-radius: 8px;
+    }
+    .badge {
+      position: absolute;
+      top: 23px;
+      left: 23px;
+      background: #ff326f;
+      color: white;
+      padding: 5px 9px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .product-card h3 { margin: 13px 0 8px; font-size: 17px; }
+    .rating { color: #ffaf00; font-size: 14px; margin-bottom: 8px; }
+    .price { color: #3217af; font-weight: bold; margin-bottom: 12px; }
+
+    footer {
+      background: #120743;
+      color: white;
+      padding: 25px 8%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 850px) {
+      .hero { flex-direction: column; text-align: center; }
+      .features, .products { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 38px; }
+      nav { display: none; }
+    }
+
+    @media (max-width: 500px) {
+      .features, .products { grid-template-columns: 1fr; }
+      .hero-image { width: 260px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-
-<header>
-
-<div class="logo">
-
-<i class="fa-solid fa-bag-shopping"></i>
-
-<h2>ShopEase</h2>
-
-</div>
-
-<nav>
-
-<ul class="nav-links">
-
-<li><a href="#">Home</a></li>
-
-<li><a href="#categories">Categories</a></li>
-
-<li><a href="#products">Shop</a></li>
-
-<li><a href="#offers">Deals</a></li>
-
-<li><a href="#footer">About</a></li>
-
-</ul>
-
-</nav>
-
-<div class="icons">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-<i class="fa-regular fa-user"></i>
-
-<div class="cart">
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-<span>0</span>
-
-</div>
-
-<div class="menu">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h4>SUMMER SALE</h4>
-
-<h1>
-
-Discover the Best Products Online
-
-</h1>
-
-<p>
-
-Shop top quality products at amazing prices.
-
-</p>
-
-<a href="#products" class="btn">
-
-Shop Now
-
-</a>
-
-</div>
-
-<div class="hero-image">
-
-<img src="headphone.png" alt="Headphone">
-
-<div class="discount">
-
-40% OFF
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= CATEGORIES ================= -->
-
-<section id="categories" class="categories">
-
-<h2>Shop by Categories</h2>
-
-<div class="category-grid">
-
-<div class="category">
-
-<img src="wireless earbuds.png">
-
-<h3>Electronics</h3>
-
-</div>
-
-<div class="category">
-
-<img src="tshirt.png">
-
-<h3>Fashion</h3>
-
-</div>
-
-<div class="category">
-
-<img src="product2.png">
-
-<h3>luxury</h3>
-
-</div>
-
-<div class="category">
-
-<img src="shoes.png">
-
-<h3>Sports</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= PRODUCTS ================= -->
-
-<section id="products" class="products">
-
-<h2>Best Selling Products</h2>
-
-<div class="product-grid">
-
-<!-- Product 1 -->
-
-<div class="product-card">
-
-<img src="watch.png">
-
-<h3>Smart Watch</h3>
-
-<p>$49.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<!-- Product 2 -->
-
-<div class="product-card">
-
-<img src="wireless earbuds.png">
-
-<h3>Wireless Earbuds</h3>
-
-<p>$29.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<!-- Product 3 -->
-
-<div class="product-card">
-
-<img src="product3.png">
-
-<h3>Backpack</h3>
-
-<p>$39.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-<!-- Product 4 -->
-
-<div class="product-card">
-
-<img src="product1.png">
-
-<h3>Sneakers</h3>
-
-<p>$59.99</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= OFFER ================= -->
-
-<section id="offers" class="offer">
-
-<div class="offer-content">
-
-<h2>Special Offer</h2>
-
-<h1>UP TO 50% OFF</h1>
-
-<p>
-
-Limited time offer on selected products.
-
-</p>
-
-<a href="#products" class="btn">
-
-Shop Now
-
-</a>
-
-</div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer id="footer">
-
-<div class="footer-grid">
-
-<div>
-
-<h2>ShopEase</h2>
-
-<p>
-
-Your trusted online shopping destination.
-
-</p>
-
-</div>
-
-<div>
-
-<h3>Quick Links</h3>
-
-<ul>
-
-<li>Home</li>
-
-<li>Shop</li>
-
-<li>Deals</li>
-
-<li>Contact</li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h3>Follow Us</h3>
-
-<div class="social">
-
-<i class="fab fa-facebook"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-twitter"></i>
-
-<i class="fab fa-linkedin"></i>
-
-</div>
-
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© 2026 ShopEase. All Rights Reserved.
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
+  <header>
+    <div class="logo">🛍 ShopEase</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Categories</a>
+      <a href="#products">Shop</a>
+      <a href="#deals">Deals</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="cart">🛒 Cart: <span id="cart-count">0</span></div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <p class="tag">NEW ARRIVAL</p>
+      <h1>Discover the Best Products Online</h1>
+      <p>Shop top-quality products at the best prices. Find the newest deals, rated products, and exclusive offers.</p>
+      <button class="btn" onclick="document.querySelector('#products').scrollIntoView()">Shop Now</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Headphones">
+      <div class="offer">30%<br>OFF</div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">🚚 <b>Free Shipping</b><br>On orders over $50</div>
+    <div class="feature">🛡️ <b>Secure Payment</b><br>100% secure checkout</div>
+    <div class="feature">🔄 <b>Easy Returns</b><br>30-day returns</div>
+    <div class="feature">🎧 <b>24/7 Support</b><br>We are here to help</div>
+  </section>
+
+  <main id="products">
+    <h2 class="section-title">Best Selling Products</h2>
+
+    <div class="filters">
+      <button class="filter active" onclick="filterProducts('all', this)">All</button>
+      <button class="filter" onclick="filterProducts('electronics', this)">Electronics</button>
+      <button class="filter" onclick="filterProducts('fashion', this)">Fashion</button>
+      <button class="filter" onclick="filterProducts('accessories', this)">Accessories</button>
+    </div>
+
+    <div class="products">
+      <article class="product-card electronics">
+        <span class="badge">Best Seller</span>
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80" alt="Smart watch">
+        <h3>Smart Watch</h3>
+        <p class="rating">★★★★★ (4.8)</p>
+        <p class="price">$49.99</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </article>
+
+      <article class="product-card electronics">
+        <span class="badge">New</span>
+        <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80" alt="Wireless earbuds">
+        <h3>Wireless Earbuds</h3>
+        <p class="rating">★★★★★ (4.7)</p>
+        <p class="price">$29.99</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </article>
+
+      <article class="product-card accessories">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Backpack">
+        <h3>Premium Backpack</h3>
+        <p class="rating">★★★★☆ (4.4)</p>
+        <p class="price">$39.99</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </article>
+
+      <article class="product-card fashion">
+        <span class="badge">Sale</span>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Sneakers">
+        <h3>Running Sneakers</h3>
+        <p class="rating">★★★★★ (4.9)</p>
+        <p class="price">$59.99</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </article>
+    </div>
+  </main>
+
+  <footer id="about">
+    <p>© 2026 ShopEase. Built for your Frontend Development Internship.</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart() {
+      cartCount++;
+      document.getElementById("cart-count").textContent = cartCount;
+    }
+
+    function filterProducts(category, button) {
+      document.querySelectorAll(".filter").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      document.querySelectorAll(".product-card").forEach(product => {
+        product.style.display =
+          category === "all" || product.classList.contains(category)
+            ? "block"
+            : "none";
+      });
+    }
+  </script>
 
 </body>
 </html>
