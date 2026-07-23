@@ -2350,3 +2350,6 @@ img{
     object-fit:contain;
 
 }
+html{
+    scroll-behavior:smooth;
+}
