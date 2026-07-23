@@ -804,7 +804,27 @@ card.addEventListener("click",()=>{
 
 
 });
+// CART OPEN CLOSE
 
+const cartIcon = document.querySelector(".cart-icon");
+
+const cartPopup = document.querySelector(".cart-popup");
+
+const closeCart = document.querySelector(".close-cart");
+
+
+cartIcon.addEventListener("click",()=>{
+
+    cartPopup.classList.add("active");
+
+});
+
+
+closeCart.addEventListener("click",()=>{
+
+    cartPopup.classList.remove("active");
+
+});
 
 });
 
