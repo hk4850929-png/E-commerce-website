@@ -1,101 +1,1944 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShopEase | Best Products Online</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase | Premium Shopping</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="header">
-    <a class="logo" href="#home"><span>▣</span> ShopEase</a>
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="nav" id="main-nav" aria-label="Main navigation">
-      <a class="active" href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Shop</a><a href="#deals">Deals</a><a href="#about">About</a>
-    </nav>
-    <div class="header-actions">
-      <button aria-label="Search">⌕</button><button aria-label="Account">♙</button>
-      <button class="cart-button" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></button>
+
+<!-- ===========================
+HEADER
+============================ -->
+
+<header>
+
+    <div class="logo">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <h2>ShopEase</h2>
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">SUMMER SALE</p>
-        <h1>Discover the Best<br />Products Online</h1>
-        <p>Shop top quality products at amazing prices.</p>
-        <a class="primary-button" href="#products">Shop now</a>
-      </div>
-      <div class="hero-image">
-        <span class="sale-badge">40%<small>OFF</small></span>
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Black over-ear headphones" />
-      </div>
-    </section>
+    <nav>
 
-    <section class="categories section" id="categories">
-      <h2>Shop by Categories</h2>
-      <div class="category-list">
-        <a href="#products">💻 <span>Electronics</span></a><a href="#products">👕 <span>Fashion</span></a><a href="#products">⌂ <span>Home</span></a><a href="#products">✦ <span>Beauty</span></a><a href="#products">⚽ <span>Sports</span></a>
-      </div>
-    </section>
+        <a href="#" class="active">Home</a>
+        <a href="#shoes">Shoes</a>
+        <a href="#electronics">Electronics</a>
+        <a href="#fashion">Fashion</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
 
-    <section class="section products" id="products">
-      <div class="section-heading"><h2>Best Selling Products</h2><a href="#products">View all →</a></div>
-      <div class="product-grid">
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Smart watch" /><h3>Smart Watch</h3><p>$49.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80" alt="Wireless earbuds" /><h3>Wireless Earbuds</h3><p>$29.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Black backpack" /><h3>Backpack</h3><p>$39.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Red sneakers" /><h3>Sneakers</h3><p>$59.99</p><button class="add-cart">Add to Cart</button></article>
-      </div>
-    </section>
-<section class="testimonials">
+    </nav>
 
-<h2>What Our Customers Say</h2>
+    <div class="header-icons">
 
-<div class="testimonial-grid">
+        <div class="search-box">
 
-<div class="testimonial">
-<img src="https://i.pravatar.cc/100?img=1">
-<div class="stars">★★★★★</div>
-<h3>Rahul Sharma</h3>
-<p>Amazing quality and very fast delivery. Highly recommended!</p>
-</div>
+            <input type="text" placeholder="Search Products">
 
-<div class="testimonial">
-<img src="https://i.pravatar.cc/100?img=2">
-<div class="stars">★★★★★</div>
-<h3>Priya Patel</h3>
-<p>The products look exactly like the photos. Great experience!</p>
-</div>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
-<div class="testimonial">
-<img src="https://i.pravatar.cc/100?img=3">
-<div class="stars">★★★★★</div>
-<h3>Aman Verma</h3>
-<p>Excellent customer support and premium quality products.</p>
-</div>
+        </div>
 
-</div>
+        <i class="fa-regular fa-heart"></i>
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <button class="login-btn">
+            Login
+        </button>
+
+        <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+HERO SECTION
+============================ -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="offer">
+            🔥 New Collection 2026
+        </span>
+
+        <h1>
+
+            Upgrade Your
+            <span>Style</span>
+
+            With Premium Shopping
+
+        </h1>
+
+        <p>
+
+            Discover premium shoes, electronics, fashion,
+            watches, bags and accessories with huge discounts
+            and free delivery.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="shop-btn">
+                Shop Now
+            </a>
+
+            <a href="#" class="explore-btn">
+                Explore
+            </a>
+
+        </div>
+
+        <div class="hero-features">
+
+            <div>
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+                <span>Free Delivery</span>
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-shield"></i>
+
+                <span>Secure Payment</span>
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+
+                <span>Easy Returns</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="images/hero-shopping.png" alt="Shopping Hero">
+
+    </div>
 
 </section>
-    <section class="deal" id="deals"><div><p class="eyebrow">LIMITED TIME OFFER</p><h2>Save more. Shop smarter.</h2><p>Get 40% off selected audio products this week.</p></div><a class="primary-button light" href="#products">Explore deals</a></section>
-  </main>
 
-  <footer id="about"><a class="logo" href="#home"><span>▣</span> ShopEase</a><p>© 2026 ShopEase. Your everyday online store.</p></footer>
-  <aside class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
-    <div class="cart-drawer__header"><h2>Your Cart</h2><button class="close-cart" type="button" aria-label="Close cart">&times;</button></div>
-    <div class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
-    <div class="cart-drawer__footer"><div class="cart-total"><span>Total</span><strong>$0.00</strong></div><button class="checkout-button" type="button" disabled>Confirm Order</button></div>
-  </aside>
-  <div class="overlay" aria-hidden="true"></div>
-  <section class="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-title" hidden>
-    <div class="confirmation-modal__content"><div class="success-icon">&#10003;</div><h2 id="confirmation-title">Confirm your Order</h2><p>Your order is ready to be placed. We&rsquo;ll get it packed and on its way soon.</p><div class="confirmation-actions"><button class="cancel-order" type="button">Keep Shopping</button><button class="place-order" type="button">Place Order</button></div></div>
-  </section>
-  <div class="toast" role="status" aria-live="polite"><span class="toast-icon">&#10003;</span><span class="toast-message">Added to your cart</span></div>
-  <script src="script.js"></script>
+<!-- ===========================
+CATEGORIES
+============================ -->
+
+<section class="categories">
+
+    <div class="title">
+
+        <h2>Shop by Categories</h2>
+
+        <p>Choose your favourite category</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+            <img src="images/shoes.png" alt="">
+            <h3>Shoes</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="images/headphone.png" alt="">
+            <h3>Electronics</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="images/shirt.png" alt="">
+            <h3>Fashion</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="images/watch.png" alt="">
+            <h3>Watches</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="images/bag.png" alt="">
+            <h3>Bags</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="images/sports.png" alt="">
+            <h3>Sports</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+FLASH SALE BANNER
+============================ -->
+
+<section class="flash-sale">
+
+    <div class="sale-left">
+
+        <h4>LIMITED TIME OFFER</h4>
+
+        <h2>Up To 70% OFF</h2>
+
+        <p>
+
+            Premium Collection
+
+            Starts From ₹999
+
+        </p>
+
+        <button>
+
+            Shop Deals
+
+        </button>
+
+    </div>
+
+    <div class="sale-right">
+
+        <img src="images/offer.png" alt="Offer">
+
+    </div>
+
+</section>
+
+<!-- Next Part Starts Here -->
+<!-- ==========================================
+TRENDING SHOES
+========================================== -->
+
+<section class="shoe-section" id="shoes">
+
+    <div class="section-heading">
+
+        <h2>🔥 Trending Sneakers</h2>
+
+        <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+
+    <div class="shoe-grid">
+
+        <!-- Product 1 -->
+
+        <div class="shoe-card">
+
+            <span class="badge new">NEW</span>
+
+            <div class="wishlist">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <img src="images/nike-air-max.png" alt="Nike Air Max">
+
+            <div class="brand">
+                Nike
+            </div>
+
+            <h3>Nike Air Max 270</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+                <span>(428)</span>
+            </div>
+
+            <p class="price">
+
+                <del>₹14,999</del>
+
+                ₹9,999
+
+            </p>
+
+            <div class="colors">
+
+                <span class="black"></span>
+
+                <span class="blue"></span>
+
+                <span class="red"></span>
+
+            </div>
+
+            <div class="sizes">
+
+                <span>7</span>
+
+                <span>8</span>
+
+                <span>9</span>
+
+                <span>10</span>
+
+            </div>
+
+            <button class="buy-btn">
+                Buy Now
+            </button>
+
+        </div>
+
+        <!-- Product 2 -->
+
+        <div class="shoe-card">
+
+            <span class="badge sale">40% OFF</span>
+
+            <div class="wishlist">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <img src="images/adidas-ultraboost.png" alt="Adidas">
+
+            <div class="brand">
+                Adidas
+            </div>
+
+            <h3>Ultraboost 22</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+                <span>(365)</span>
+            </div>
+
+            <p class="price">
+
+                <del>₹12,999</del>
+
+                ₹7,999
+
+            </p>
+
+            <div class="colors">
+
+                <span class="white"></span>
+
+                <span class="black"></span>
+
+            </div>
+
+            <div class="sizes">
+
+                <span>7</span>
+
+                <span>8</span>
+
+                <span>9</span>
+
+                <span>10</span>
+
+            </div>
+
+            <button class="buy-btn">
+
+                Buy Now
+
+            </button>
+
+        </div>
+
+        <!-- Product 3 -->
+
+        <div class="shoe-card">
+
+            <span class="badge hot">HOT</span>
+
+            <div class="wishlist">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <img src="images/puma-rsx.png" alt="Puma">
+
+            <div class="brand">
+
+                Puma
+
+            </div>
+
+            <h3>Puma RS-X</h3>
+
+            <div class="rating">
+
+                ⭐⭐⭐⭐☆
+
+                <span>(250)</span>
+
+            </div>
+
+            <p class="price">
+
+                <del>₹10,999</del>
+
+                ₹6,999
+
+            </p>
+
+            <div class="colors">
+
+                <span class="yellow"></span>
+
+                <span class="white"></span>
+
+            </div>
+
+            <div class="sizes">
+
+                <span>6</span>
+
+                <span>7</span>
+
+                <span>8</span>
+
+                <span>9</span>
+
+            </div>
+
+            <button class="buy-btn">
+
+                Buy Now
+
+            </button>
+
+        </div>
+
+        <!-- Product 4 -->
+
+        <div class="shoe-card">
+
+            <span class="badge premium">PREMIUM</span>
+
+            <div class="wishlist">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <img src="images/jordan-retro.png" alt="Jordan">
+
+            <div class="brand">
+
+                Jordan
+
+            </div>
+
+            <h3>Air Jordan Retro</h3>
+
+            <div class="rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>(520)</span>
+
+            </div>
+
+            <p class="price">
+
+                <del>₹18,999</del>
+
+                ₹14,499
+
+            </p>
+
+            <div class="colors">
+
+                <span class="red"></span>
+
+                <span class="black"></span>
+
+            </div>
+
+            <div class="sizes">
+
+                <span>7</span>
+
+                <span>8</span>
+
+                <span>9</span>
+
+                <span>10</span>
+
+                <span>11</span>
+
+            </div>
+
+            <button class="buy-btn">
+
+                Buy Now
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+ELECTRONICS SECTION
+========================================== -->
+
+<section class="electronics-section" id="electronics">
+
+    <div class="section-heading">
+
+        <h2>⚡ Latest Electronics</h2>
+
+        <a href="#">Explore More <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+
+    <div class="electronics-grid">
+
+        <!-- Product 1 -->
+
+        <div class="electronic-card">
+
+            <span class="tech-badge">NEW</span>
+
+            <img src="images/laptop.png" alt="Gaming Laptop">
+
+            <div class="electronic-info">
+
+                <h3>ASUS ROG Gaming Laptop</h3>
+
+                <p class="specs">
+                    Intel i7 • 16GB RAM • 1TB SSD
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ <span>(145)</span>
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">₹89,999</span>
+
+                    <del>₹1,05,999</del>
+
+                </div>
+
+                <div class="features">
+
+                    <span>⚡ RTX Graphics</span>
+
+                    <span>🔋 8 Hours</span>
+
+                </div>
+
+                <div class="btn-group">
+
+                    <button class="cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add Cart
+
+                    </button>
+
+                    <button class="compare-btn">
+
+                        Compare
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Product 2 -->
+
+        <div class="electronic-card">
+
+            <span class="tech-badge">HOT</span>
+
+            <img src="images/iphone.png" alt="iPhone">
+
+            <div class="electronic-info">
+
+                <h3>iPhone 17 Pro</h3>
+
+                <p class="specs">
+
+                    256GB • A20 Chip
+
+                </p>
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐ <span>(532)</span>
+
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+
+                        ₹1,29,999
+
+                    </span>
+
+                    <del>
+
+                        ₹1,39,999
+
+                    </del>
+
+                </div>
+
+                <div class="features">
+
+                    <span>📷 48MP</span>
+
+                    <span>🔋 All Day</span>
+
+                </div>
+
+                <div class="btn-group">
+
+                    <button class="cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add Cart
+
+                    </button>
+
+                    <button class="compare-btn">
+
+                        Compare
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Product 3 -->
+
+        <div class="electronic-card">
+
+            <span class="tech-badge">SALE</span>
+
+            <img src="images/headphone.png" alt="Headphones">
+
+            <div class="electronic-info">
+
+                <h3>Sony WH-1000XM6</h3>
+
+                <p class="specs">
+
+                    Noise Cancelling
+
+                </p>
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐ <span>(411)</span>
+
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+
+                        ₹24,999
+
+                    </span>
+
+                    <del>
+
+                        ₹29,999
+
+                    </del>
+
+                </div>
+
+                <div class="features">
+
+                    <span>🎵 Hi-Res Audio</span>
+
+                    <span>🔋 40 Hours</span>
+
+                </div>
+
+                <div class="btn-group">
+
+                    <button class="cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add Cart
+
+                    </button>
+
+                    <button class="compare-btn">
+
+                        Compare
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Product 4 -->
+
+        <div class="electronic-card">
+
+            <span class="tech-badge">BEST</span>
+
+            <img src="images/watch.png" alt="Apple Watch">
+
+            <div class="electronic-info">
+
+                <h3>Apple Watch Ultra</h3>
+
+                <p class="specs">
+
+                    GPS + Cellular
+
+                </p>
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐ <span>(287)</span>
+
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+
+                        ₹69,999
+
+                    </span>
+
+                    <del>
+
+                        ₹75,999
+
+                    </del>
+
+                </div>
+
+                <div class="features">
+
+                    <span>❤️ Health</span>
+
+                    <span>🔋 36 Hours</span>
+
+                </div>
+
+                <div class="btn-group">
+
+                    <button class="cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add Cart
+
+                    </button>
+
+                    <button class="compare-btn">
+
+                        Compare
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+FASHION COLLECTION
+========================================== -->
+
+<section class="fashion-section" id="fashion">
+
+    <div class="fashion-header">
+
+        <div>
+            <h2>👕 Fashion Collection</h2>
+            <p>Upgrade your wardrobe with the latest styles.</p>
+        </div>
+
+        <a href="#">Explore Fashion <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+
+    <!-- Fashion Banner -->
+
+    <div class="fashion-banner">
+
+        <div class="fashion-text">
+
+            <h1>Summer Collection 2026</h1>
+
+            <p>Flat 50% OFF on Premium Fashion Brands</p>
+
+            <button>Shop Now</button>
+
+        </div>
+
+        <img src="images/fashion-banner.png" alt="Fashion Banner">
+
+    </div>
+
+    <!-- Products -->
+
+    <div class="fashion-grid">
+
+        <!-- Product 1 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag">NEW</span>
+
+            <img src="images/tshirt.png">
+
+            <h3>Casual T-Shirt</h3>
+
+            <p>100% Cotton</p>
+
+            <div class="fashion-price">
+
+                <span>₹799</span>
+
+                <del>₹1199</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <!-- Product 2 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag sale">SALE</span>
+
+            <img src="images/shirt.png">
+
+            <h3>Formal Shirt</h3>
+
+            <p>Slim Fit</p>
+
+            <div class="fashion-price">
+
+                <span>₹1499</span>
+
+                <del>₹2199</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <!-- Product 3 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag hot">HOT</span>
+
+            <img src="images/hoodie.png">
+
+            <h3>Premium Hoodie</h3>
+
+            <p>Winter Collection</p>
+
+            <div class="fashion-price">
+
+                <span>₹1999</span>
+
+                <del>₹2899</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <!-- Product 4 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag">TRENDING</span>
+
+            <img src="images/jeans.png">
+
+            <h3>Blue Denim Jeans</h3>
+
+            <p>Comfort Stretch</p>
+
+            <div class="fashion-price">
+
+                <span>₹1799</span>
+
+                <del>₹2499</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <!-- Product 5 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag premium">PREMIUM</span>
+
+            <img src="images/jacket.png">
+
+            <h3>Leather Jacket</h3>
+
+            <p>Premium Edition</p>
+
+            <div class="fashion-price">
+
+                <span>₹3999</span>
+
+                <del>₹4999</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+        <!-- Product 6 -->
+
+        <div class="fashion-card">
+
+            <span class="fashion-tag">BEST</span>
+
+            <img src="images/cap.png">
+
+            <h3>Sports Cap</h3>
+
+            <p>Limited Edition</p>
+
+            <div class="fashion-price">
+
+                <span>₹599</span>
+
+                <del>₹899</del>
+
+            </div>
+
+            <button>Buy Now</button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+LUXURY WATCHES
+========================================== -->
+
+<section class="watch-section" id="watches">
+
+    <div class="watch-title">
+
+        <h2>⌚ Luxury Watches</h2>
+
+        <p>Premium Collection For Luxury Lifestyle</p>
+
+    </div>
+
+    <div class="watch-grid">
+
+        <!-- Watch 1 -->
+
+        <div class="watch-card">
+
+            <span class="watch-tag">BEST SELLER</span>
+
+            <img src="images/apple-watch.png">
+
+            <div class="watch-info">
+
+                <h3>Apple Watch Ultra 2</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p>
+
+                    Titanium Case<br>
+
+                    GPS + Cellular
+
+                </p>
+
+                <div class="watch-price">
+
+                    <span>₹69,999</span>
+
+                    <del>₹79,999</del>
+
+                </div>
+
+                <button>
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Watch 2 -->
+
+        <div class="watch-card">
+
+            <span class="watch-tag gold">
+
+                PREMIUM
+
+            </span>
+
+            <img src="images/rolex.png">
+
+            <div class="watch-info">
+
+                <h3>Rolex Oyster</h3>
+
+                <div class="stars">
+
+                    ⭐⭐⭐⭐⭐
+
+                </div>
+
+                <p>
+
+                    Swiss Automatic
+
+                </p>
+
+                <div class="watch-price">
+
+                    <span>
+
+                        ₹2,49,999
+
+                    </span>
+
+                    <del>
+
+                        ₹2,79,999
+
+                    </del>
+
+                </div>
+
+                <button>
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Watch 3 -->
+
+        <div class="watch-card">
+
+            <span class="watch-tag red">
+
+                HOT
+
+            </span>
+
+            <img src="images/titan.png">
+
+            <div class="watch-info">
+
+                <h3>Titan Edge</h3>
+
+                <div class="stars">
+
+                    ⭐⭐⭐⭐⭐
+
+                </div>
+
+                <p>
+
+                    Sapphire Glass
+
+                </p>
+
+                <div class="watch-price">
+
+                    <span>
+
+                        ₹12,999
+
+                    </span>
+
+                    <del>
+
+                        ₹16,999
+
+                    </del>
+
+                </div>
+
+                <button>
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Watch 4 -->
+
+        <div class="watch-card">
+
+            <span class="watch-tag blue">
+
+                NEW
+
+            </span>
+
+            <img src="images/fossil.png">
+
+            <div class="watch-info">
+
+                <h3>Fossil Gen 7</h3>
+
+                <div class="stars">
+
+                    ⭐⭐⭐⭐☆
+
+                </div>
+
+                <p>
+
+                    Smart Hybrid
+
+                </p>
+
+                <div class="watch-price">
+
+                    <span>
+
+                        ₹18,999
+
+                    </span>
+
+                    <del>
+
+                        ₹22,999
+
+                    </del>
+
+                </div>
+
+                <button>
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+        BAGS & TRAVEL SECTION
+========================================== -->
+
+<section class="bags-section" id="bags">
+
+    <div class="bags-header">
+
+        <div>
+
+            <h2>🎒 Bags & Travel Collection</h2>
+
+            <p>Travel Smart With Stylish & Durable Bags</p>
+
+        </div>
+
+        <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+
+    <div class="bags-grid">
+
+        <!-- BAG 1 -->
+
+        <div class="bag-card">
+
+            <span class="bag-badge">BEST SELLER</span>
+
+            <img src="images/laptop-bag.png" alt="Laptop Bag">
+
+            <h3>Premium Laptop Bag</h3>
+
+            <p>Waterproof • 25L Capacity</p>
+
+            <div class="bag-rating">
+
+                ⭐⭐⭐⭐⭐ <span>(412)</span>
+
+            </div>
+
+            <div class="bag-price">
+
+                <span>₹1,999</span>
+
+                <del>₹2,699</del>
+
+            </div>
+
+            <button>Add to Cart</button>
+
+        </div>
+
+        <!-- BAG 2 -->
+
+        <div class="bag-card">
+
+            <span class="bag-badge sale">
+
+                40% OFF
+
+            </span>
+
+            <img src="images/travel-bag.png" alt="Travel Bag">
+
+            <h3>Travel Duffel Bag</h3>
+
+            <p>Large Capacity • 45L</p>
+
+            <div class="bag-rating">
+
+                ⭐⭐⭐⭐⭐ <span>(298)</span>
+
+            </div>
+
+            <div class="bag-price">
+
+                <span>₹2,499</span>
+
+                <del>₹3,999</del>
+
+            </div>
+
+            <button>Add to Cart</button>
+
+        </div>
+
+        <!-- BAG 3 -->
+
+        <div class="bag-card">
+
+            <span class="bag-badge new">
+
+                NEW
+
+            </span>
+
+            <img src="images/backpack.png" alt="Backpack">
+
+            <h3>Adventure Backpack</h3>
+
+            <p>Hiking • 60L Capacity</p>
+
+            <div class="bag-rating">
+
+                ⭐⭐⭐⭐☆ <span>(175)</span>
+
+            </div>
+
+            <div class="bag-price">
+
+                <span>₹3,299</span>
+
+                <del>₹4,299</del>
+
+            </div>
+
+            <button>Add to Cart</button>
+
+        </div>
+
+        <!-- BAG 4 -->
+
+        <div class="bag-card">
+
+            <span class="bag-badge premium">
+
+                PREMIUM
+
+            </span>
+
+            <img src="images/suitcase.png" alt="Suitcase">
+
+            <h3>Luxury Suitcase</h3>
+
+            <p>360° Wheels • TSA Lock</p>
+
+            <div class="bag-rating">
+
+                ⭐⭐⭐⭐⭐ <span>(540)</span>
+
+            </div>
+
+            <div class="bag-price">
+
+                <span>₹5,999</span>
+
+                <del>₹7,499</del>
+
+            </div>
+
+            <button>Add to Cart</button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+SPORTS & FITNESS SECTION
+========================================== -->
+
+<section class="sports-section" id="sports">
+
+    <div class="sports-top">
+
+        <div>
+
+            <h2>🏋 Sports & Fitness</h2>
+
+            <p>Train Hard. Stay Strong. Live Healthy.</p>
+
+        </div>
+
+        <a href="#">View Collection <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+
+    <div class="sports-container">
+
+        <!-- LEFT OFFER -->
+
+        <div class="sports-banner">
+
+            <h4>FITNESS WEEK</h4>
+
+            <h1>Flat 50% OFF</h1>
+
+            <p>
+                Gym Equipment, Football,
+                Cricket, Yoga & More.
+            </p>
+
+            <button>Explore Now</button>
+
+            <img src="images/sports-banner.png" alt="Sports Banner">
+
+        </div>
+
+        <!-- RIGHT PRODUCTS -->
+
+        <div class="sports-grid">
+
+            <div class="sports-card">
+
+                <span class="sport-tag">HOT</span>
+
+                <img src="images/cricket-bat.png">
+
+                <h3>MRF Cricket Bat</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹4,999
+                    <del>₹6,499</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+            <div class="sports-card">
+
+                <span class="sport-tag green">
+                    NEW
+                </span>
+
+                <img src="images/football.png">
+
+                <h3>Adidas Football</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹1,499
+                    <del>₹2,299</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+            <div class="sports-card">
+
+                <span class="sport-tag blue">
+                    SALE
+                </span>
+
+                <img src="images/dumbbell.png">
+
+                <h3>20 KG Dumbbells</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <p class="price">
+                    ₹3,999
+                    <del>₹5,499</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+            <div class="sports-card">
+
+                <span class="sport-tag">
+                    TOP
+                </span>
+
+                <img src="images/yoga-mat.png">
+
+                <h3>Yoga Mat</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹999
+                    <del>₹1,399</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+            <div class="sports-card">
+
+                <span class="sport-tag premium">
+                    PREMIUM
+                </span>
+
+                <img src="images/gym-gloves.png">
+
+                <h3>Gym Gloves</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹799
+                    <del>₹1,099</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+            <div class="sports-card">
+
+                <span class="sport-tag red">
+                    BEST
+                </span>
+
+                <img src="images/running-shoes.png">
+
+                <h3>Running Shoes</h3>
+
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹5,999
+                    <del>₹7,999</del>
+                </p>
+
+                <button>Add Cart</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+CUSTOMER REVIEWS
+========================================== -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="review-title">
+
+        <h2>💬 What Our Customers Say</h2>
+
+        <p>More than <strong>50,000+</strong> happy customers worldwide.</p>
+
+    </div>
+
+    <div class="review-container">
+
+        <!-- Review 1 -->
+
+        <div class="review-card">
+
+            <div class="review-top">
+
+                <img src="images/review1.jpg" alt="Customer">
+
+                <div>
+
+                    <h3>Rahul Sharma</h3>
+
+                    <span class="verified">
+                        ✔ Verified Buyer
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="stars">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <p>
+
+                Amazing shopping experience! The shoes are exactly as shown.
+                Fast delivery and excellent quality.
+
+            </p>
+
+            <div class="review-footer">
+
+                <span>❤️ 245 Helpful</span>
+
+                <span>Purchased: 10 July 2026</span>
+
+            </div>
+
+        </div>
+
+        <!-- Review 2 -->
+
+        <div class="review-card">
+
+            <div class="review-top">
+
+                <img src="images/review2.jpg" alt="Customer">
+
+                <div>
+
+                    <h3>Priya Patel</h3>
+
+                    <span class="verified">
+
+                        ✔ Verified Buyer
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="stars">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <p>
+
+                Loved the electronics collection.
+                Premium quality with great discounts.
+
+            </p>
+
+            <div class="review-footer">
+
+                <span>❤️ 312 Helpful</span>
+
+                <span>Purchased: 21 June 2026</span>
+
+            </div>
+
+        </div>
+
+        <!-- Review 3 -->
+
+        <div class="review-card">
+
+            <div class="review-top">
+
+                <img src="images/review3.jpg" alt="Customer">
+
+                <div>
+
+                    <h3>Aman Verma</h3>
+
+                    <span class="verified">
+
+                        ✔ Verified Buyer
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="stars">
+
+                ⭐⭐⭐⭐☆
+
+            </div>
+
+            <p>
+
+                Fashion products are stylish and affordable.
+                Will definitely shop again!
+
+            </p>
+
+            <div class="review-footer">
+
+                <span>❤️ 189 Helpful</span>
+
+                <span>Purchased: 15 May 2026</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Overall Rating -->
+
+    <div class="overall-rating">
+
+        <div class="rating-box">
+
+            <h1>4.9</h1>
+
+            <div class="stars">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <p>
+
+                Average Customer Rating
+
+            </p>
+
+        </div>
+
+        <div class="rating-box">
+
+            <h1>50K+</h1>
+
+            <p>
+
+                Happy Customers
+
+            </p>
+
+        </div>
+
+        <div class="rating-box">
+
+            <h1>120K+</h1>
+
+            <p>
+
+                Orders Delivered
+
+            </p>
+
+        </div>
+
+        <div class="rating-box">
+
+            <h1>99%</h1>
+
+            <p>
+
+                Positive Feedback
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+NEWSLETTER
+========================================== -->
+
+<section class="newsletter">
+
+    <div class="newsletter-content">
+
+        <h2>📩 Subscribe to Our Newsletter</h2>
+
+        <p>
+            Get exclusive offers, latest arrivals, discounts,
+            and shopping updates directly in your inbox.
+        </p>
+
+        <form class="newsletter-form">
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+
+<footer id="contact">
+
+    <div class="footer-container">
+
+        <!-- Company -->
+
+        <div class="footer-box">
+
+            <h2>
+                <i class="fa-solid fa-bag-shopping"></i>
+                ShopEase
+            </h2>
+
+            <p>
+                ShopEase is your trusted online shopping destination
+                offering premium fashion, electronics, sports, bags,
+                and accessories at unbeatable prices.
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-twitter"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fab fa-youtube"></i></a>
+
+            </div>
+
+        </div>
+
+        <!-- Quick Links -->
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+
+            <a href="#shoes">Shoes</a>
+
+            <a href="#electronics">Electronics</a>
+
+            <a href="#fashion">Fashion</a>
+
+            <a href="#reviews">Reviews</a>
+
+        </div>
+
+        <!-- Categories -->
+
+        <div class="footer-box">
+
+            <h3>Categories</h3>
+
+            <a href="#">Shoes</a>
+
+            <a href="#">Electronics</a>
+
+            <a href="#">Fashion</a>
+
+            <a href="#">Watches</a>
+
+            <a href="#">Sports</a>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+
+                Ahmedabad, Gujarat
+            </p>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+
+                +91 9876543210
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+
+                support@shopease.com
+            </p>
+
+            <p>
+                <i class="fa-solid fa-clock"></i>
+
+                Mon - Sat : 9 AM - 9 PM
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Payment -->
+
+    <div class="payment-section">
+
+        <h3>Secure Payments</h3>
+
+        <div class="payments">
+
+            <i class="fab fa-cc-visa"></i>
+
+            <i class="fab fa-cc-mastercard"></i>
+
+            <i class="fab fa-cc-paypal"></i>
+
+            <i class="fab fa-google-pay"></i>
+
+            <i class="fab fa-cc-amazon-pay"></i>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+
+        <p>
+
+            © 2026 ShopEase. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- Back To Top -->
+
+<button id="topBtn">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
 </body>
 </html>
