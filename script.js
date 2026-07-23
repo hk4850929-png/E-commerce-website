@@ -1,73 +1,99 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
-const cartButton = document.querySelector('.cart-button');
-const cartDrawer = document.querySelector('.cart-drawer');
-const overlay = document.querySelector('.overlay');
-const closeCartButton = document.querySelector('.close-cart');
-const cartItems = document.querySelector('.cart-items');
-const cartCount = document.querySelector('#cart-count');
-const total = document.querySelector('.cart-total strong');
-const checkoutButton = document.querySelector('.checkout-button');
-const confirmationModal = document.querySelector('.confirmation-modal');
-const cancelOrderButton = document.querySelector('.cancel-order');
-const placeOrderButton = document.querySelector('.place-order');
-let cart = [];
+// ===============================
+// MOBILE MENU
+// ===============================
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('is-open');
-  menuToggle.classList.toggle('is-open', isOpen);
-  menuToggle.setAttribute('aria-expanded', isOpen);
-  menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+const menu = document.querySelector(".menu");
+const nav = document.querySelector("nav");
+
+menu.addEventListener("click", () => {
+
+    nav.classList.toggle("active");
+
+    if(nav.classList.contains("active")){
+        menu.innerHTML='<i class="fa-solid fa-xmark"></i>';
+    }else{
+        menu.innerHTML='<i class="fa-solid fa-bars"></i>';
+    }
+
 });
 
-nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  nav.classList.remove('is-open');
-  menuToggle.classList.remove('is-open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', 'Open menu');
-}));
+// ===============================
+// STICKY NAVBAR SHADOW
+// ===============================
 
-function updateCart() {
-  const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  cartCount.textContent = quantity;
-  total.textContent = `$${cartTotal.toFixed(2)}`;
-  checkoutButton.disabled = cart.length === 0;
-  cartItems.innerHTML = cart.length ? cart.map((item) => `<div class="cart-item"><div><h3>${item.name}</h3><p>$${item.price.toFixed(2)} &times; ${item.quantity}</p></div><button type="button" class="remove-item" data-name="${item.name}" aria-label="Remove ${item.name}">&times;</button></div>`).join('') : '<p class="empty-cart">Your cart is empty.</p>';
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+if(window.scrollY>50){
+
+header.style.boxShadow="0 10px 30px rgba(0,0,0,.15)";
+
+}else{
+
+header.style.boxShadow="none";
+
 }
 
-function openCart() { cartDrawer.classList.add('is-open'); overlay.classList.add('is-visible'); cartDrawer.setAttribute('aria-hidden', 'false'); }
-function closeCart() { cartDrawer.classList.remove('is-open'); overlay.classList.remove('is-visible'); cartDrawer.setAttribute('aria-hidden', 'true'); }
-
-document.querySelectorAll('.add-cart').forEach((button) => button.addEventListener('click', () => {
-  const card = button.closest('.product-card');
-  const name = card.querySelector('h3').textContent;
-  const price = Number(card.querySelector('p').textContent.replace(/[^0-9.]/g, ''));
-  const item = cart.find((entry) => entry.name === name);
-  if (item) item.quantity += 1;
-  else cart.push({ name, price, quantity: 1 });
-  updateCart();
-  openCart();
-}));
-
-cartButton.addEventListener('click', openCart);
-closeCartButton.addEventListener('click', closeCart);
-overlay.addEventListener('click', closeCart);
-cartItems.addEventListener('click', (event) => {
-  const button = event.target.closest('.remove-item');
-  if (!button) return;
-  cart = cart.filter((item) => item.name !== button.dataset.name);
-  updateCart();
-});
-checkoutButton.addEventListener('click', () => { closeCart(); confirmationModal.hidden = false; });
-cancelOrderButton.addEventListener('click', () => { confirmationModal.hidden = true; });
-placeOrderButton.addEventListener('click', () => {
-  confirmationModal.querySelector('h2').textContent = 'Order Confirmed!';
-  confirmationModal.querySelector('p').textContent = 'Thank you for shopping with ShopEase. Your order has been placed.';
-  placeOrderButton.hidden = true;
-  cancelOrderButton.textContent = 'Continue Shopping';
-  cart = [];
-  updateCart();
 });
 
-updateCart();
+// ===============================
+// SCROLL ANIMATION
+// ===============================
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card,.feature,.step,.hero-text,.hero-image")
+.forEach(el=>observer.observe(el));
+
+// ===============================
+// BUTTON RIPPLE EFFECT
+// ===============================
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="scale(1.05)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="scale(1)";
+
+});
+
+});
+
+// ===============================
+// PRODUCT HOVER EFFECT
+// ===============================
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mousemove",()=>{
+
+card.style.transform="translateY(-12px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0px)";
+
+});
+
+});
