@@ -1,71 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShopEase | Best Products Online</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase | E-Commerce</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-  <header class="header">
-    <a class="logo" href="#home"><span>▣</span> ShopEase</a>
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="nav" id="main-nav" aria-label="Main navigation">
-      <a class="active" href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Shop</a><a href="#deals">Deals</a><a href="#about">About</a>
-    </nav>
-    <div class="header-actions">
-      <button aria-label="Search">⌕</button><button aria-label="Account">♙</button>
-      <button class="cart-button" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></button>
+
+<!--================ NAVBAR ================-->
+
+<header>
+
+    <div class="logo">
+        <i class="fa-solid fa-bag-shopping"></i>
+        ShopEase
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">SUMMER SALE</p>
-        <h1>Discover the Best<br />Products Online</h1>
-        <p>Shop top quality products at amazing prices.</p>
-        <a class="primary-button" href="#products">Shop now</a>
-      </div>
-      <div class="hero-image">
-        <span class="sale-badge">40%<small>OFF</small></span>
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Black over-ear headphones" />
-      </div>
-    </section>
+    <nav>
 
-    <section class="categories section" id="categories">
-      <h2>Shop by Categories</h2>
-      <div class="category-list">
-        <a href="#products">💻 <span>Electronics</span></a><a href="#products">👕 <span>Fashion</span></a><a href="#products">⌂ <span>Home</span></a><a href="#products">✦ <span>Beauty</span></a><a href="#products">⚽ <span>Sports</span></a>
-      </div>
-    </section>
+        <a href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">Shop</a>
+        <a href="#">Deals</a>
+        <a href="#">About</a>
 
-    <section class="section products" id="products">
-      <div class="section-heading"><h2>Best Selling Products</h2><a href="#products">View all →</a></div>
-      <div class="product-grid">
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Smart watch" /><h3>Smart Watch</h3><p>$49.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80" alt="Wireless earbuds" /><h3>Wireless Earbuds</h3><p>$29.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Black backpack" /><h3>Backpack</h3><p>$39.99</p><button class="add-cart">Add to Cart</button></article>
-        <article class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Red sneakers" /><h3>Sneakers</h3><p>$59.99</p><button class="add-cart">Add to Cart</button></article>
-      </div>
-    </section>
+    </nav>
 
-    <section class="deal" id="deals"><div><p class="eyebrow">LIMITED TIME OFFER</p><h2>Save more. Shop smarter.</h2><p>Get 40% off selected audio products this week.</p></div><a class="primary-button light" href="#products">Explore deals</a></section>
-  </main>
+    <div class="icons">
 
-  <footer id="about"><a class="logo" href="#home"><span>▣</span> ShopEase</a><p>© 2026 ShopEase. Your everyday online store.</p></footer>
-  <aside class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
-    <div class="cart-drawer__header"><h2>Your Cart</h2><button class="close-cart" type="button" aria-label="Close cart">&times;</button></div>
-    <div class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
-    <div class="cart-drawer__footer"><div class="cart-total"><span>Total</span><strong>$0.00</strong></div><button class="checkout-button" type="button" disabled>Confirm Order</button></div>
-  </aside>
-  <div class="overlay" aria-hidden="true"></div>
-  <section class="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-title" hidden>
-    <div class="confirmation-modal__content"><div class="success-icon">&#10003;</div><h2 id="confirmation-title">Confirm your Order</h2><p>Your order is ready to be placed. We&rsquo;ll get it packed and on its way soon.</p><div class="confirmation-actions"><button class="cancel-order" type="button">Keep Shopping</button><button class="place-order" type="button">Place Order</button></div></div>
-  </section>
-  <script src="script.js"></script>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-user"></i>
+
+        <div class="cart">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>2</span>
+
+        </div>
+
+        <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</header>
+
+<!--================ HERO ================-->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<span>NEW ARRIVAL</span>
+
+<h1>
+Discover the Best
+Products Online
+</h1>
+
+<p>
+Shop top quality products at best prices with exciting offers.
+</p>
+
+<div class="buttons">
+
+<a href="#" class="btn">Shop Now</a>
+
+<a href="#" class="btn2">Explore</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="images/headphone.png" alt="Headphone">
+
+<div class="offer">
+
+30%
+<br>
+OFF
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ FEATURES ================-->
+
+<section class="features">
+
+<div class="feature">
+
+<i class="fa-solid fa-truck-fast"></i>
+
+<h3>Free Shipping</h3>
+
+<p>Orders over $50</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-credit-card"></i>
+
+<h3>Secure Payment</h3>
+
+<p>100% Secure</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-rotate-left"></i>
+
+<h3>Easy Return</h3>
+
+<p>30 Days Return</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>24/7 Support</h3>
+
+<p>Always Available</p>
+
+</div>
+
+</section>
+
+<!--================ PRODUCTS ================-->
+
+<section class="products">
+
+<h2>Best Selling Products</h2>
+
+<div class="product-grid">
+
+<div class="card">
+
+<img src="images/watch.png">
+
+<h3>Smart Watch</h3>
+
+<h4>$49.99</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/earbuds.png">
+
+<h3>Wireless Earbuds</h3>
+
+<h4>$29.99</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/bag.png">
+
+<h3>Backpack</h3>
+
+<h4>$39.99</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/shoes.png">
+
+<h3>Sneakers</h3>
+
+<h4>$59.99</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ DAY 14 ================-->
+
+<section class="requirement">
+
+<h2>DAY 14 REQUIREMENT</h2>
+
+<h3>Requirement Change (Product Thinking)</h3>
+
+<p>
+
+Update your website according to new product requirements.
+
+Modify your site to support badges, ratings, filters and more.
+
+</p>
+
+</section>
+
+<!--================ TODO ================-->
+
+<section class="todo">
+
+<h2>What You Need To Do</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<h3>Step 1</h3>
+
+<p>Understand New Requirements</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 2</h3>
+
+<p>Update Layout & Structure</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 3</h3>
+
+<p>Enhance Product Section</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 4</h3>
+
+<p>Test & Publish</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ GITHUB ================-->
+
+<section class="github">
+
+<h2>How To Publish On GitHub</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<h3>Step 1</h3>
+
+<p>Open Repository</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 2</h3>
+
+<p>Upload Updated Files</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 3</h3>
+
+<p>Enable GitHub Pages</p>
+
+</div>
+
+<div class="step">
+
+<h3>Step 4</h3>
+
+<p>Check Live Website</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ FOOTER ================-->
+
+<footer>
+
+<p>
+
+© 2026 ShopEase | Designed by Harshit Kumar
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
