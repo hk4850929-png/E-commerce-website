@@ -52,7 +52,13 @@ HEADER
 
         <i class="fa-regular fa-heart"></i>
 
-        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="cart-icon">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+    <span class="cart-count">0</span>
+
+</div>
 
         <button class="login-btn">
             Login
@@ -1932,7 +1938,37 @@ FOOTER
 </button>
 
 <!-- JavaScript -->
+<!-- CART POPUP -->
 
+<div class="cart-popup">
+
+    <div class="cart-header">
+
+        <h2>🛒 Your Cart</h2>
+
+        <i class="fa-solid fa-xmark close-cart"></i>
+
+    </div>
+
+
+    <div class="cart-items">
+
+        <p>Your cart is empty</p>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <h3>Total: ₹0</h3>
+
+        <button>
+            Checkout
+        </button>
+
+    </div>
+
+</div>
 <script src="script.js"></script>
 
 </body>
