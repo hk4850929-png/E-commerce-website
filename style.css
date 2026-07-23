@@ -2353,3 +2353,110 @@ img{
 html{
     scroll-behavior:smooth;
 }
+/* CART POPUP */
+
+.cart-popup{
+
+    position:fixed;
+
+    right:-400px;
+
+    top:0;
+
+    width:350px;
+
+    height:100vh;
+
+    background:white;
+
+    box-shadow:0 0 20px #0003;
+
+    z-index:9999;
+
+    padding:25px;
+
+    transition:.4s;
+
+}
+
+
+.cart-popup.active{
+
+    right:0;
+
+}
+
+
+.cart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.close-cart{
+
+    cursor:pointer;
+
+    font-size:25px;
+
+}
+
+
+.cart-icon{
+
+    position:relative;
+
+    cursor:pointer;
+
+}
+
+
+.cart-count{
+
+    position:absolute;
+
+    top:-10px;
+
+    right:-10px;
+
+    background:red;
+
+    color:white;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    font-size:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.cart-footer button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#111827;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+}
