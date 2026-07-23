@@ -2326,3 +2326,27 @@ RESPONSIVE DESIGN
 
 
 }
+/* Your previous CSS code */
+
+
+/* ==============================
+FINAL IMAGE FIX
+============================== */
+
+img{
+    max-width:100%;
+}
+
+.category-card img,
+.shoe-card img,
+.electronic-card img,
+.fashion-card img,
+.watch-card img,
+.bag-card img,
+.sports-card img{
+
+    width:100%;
+    height:250px;
+    object-fit:contain;
+
+}
