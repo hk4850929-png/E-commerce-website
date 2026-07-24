@@ -520,9 +520,57 @@
             </span>
         </h3>
 
-        <button class="checkout-btn">
-            Checkout
+       <!-- Checkout Modal -->
+
+<div class="checkout-modal">
+
+    <div class="checkout-box">
+
+        <h2>Checkout</h2>
+
+        <input type="text" id="customerName" placeholder="Full Name">
+
+        <input type="tel" id="customerPhone" placeholder="Mobile Number">
+
+        <input type="text" id="customerAddress" placeholder="Delivery Address">
+
+        <select id="paymentMethod">
+            <option>Cash on Delivery</option>
+            <option>UPI</option>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+        </select>
+
+        <button id="placeOrder">
+            Place Order
         </button>
+
+        <button id="cancelCheckout">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Order Success -->
+
+<div id="orderPopup">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <h2>Order Placed Successfully!</h2>
+
+    <p>
+        Thank you for shopping with FashionHub.
+        Your order will be delivered within 3-5 business days.
+    </p>
+
+    <button id="continueShopping">
+        Continue Shopping
+    </button>
+
+</div>
 
     </div>
 
