@@ -263,15 +263,25 @@ function checkout(){
 // WISHLIST
 // ===========================
 
-document.querySelectorAll(".wishlist").forEach(btn=>{
+document.querySelectorAll(".wishlist").forEach(button => {
 
-    btn.addEventListener("click",function(){
+    button.addEventListener("click", function (e) {
 
-        this.classList.toggle("fa-regular");
+        e.preventDefault();
 
-        this.classList.toggle("fa-solid");
+        if (this.classList.contains("fa-regular")) {
 
-        this.style.color = "#ff4d4d";
+            this.classList.remove("fa-regular");
+            this.classList.add("fa-solid");
+            this.style.color = "#ff4d4d";
+
+        } else {
+
+            this.classList.remove("fa-solid");
+            this.classList.add("fa-regular");
+            this.style.color = "";
+
+        }
 
     });
 
