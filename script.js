@@ -103,26 +103,83 @@ if (searchInput) {
 // ==========================================
 // CART SYSTEM
 // ==========================================
+// ==========================================
+// CART SYSTEM
+// ==========================================
 
 let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartCount = document.querySelector(".cart-count");
+const cartItemsBox = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-footer h3");
 
 function updateCartCount() {
-
     if (cartCount) {
-        cartCount.innerText = cartItems.length;
+        cartCount.textContent = cartItems.length;
     }
+}
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    updateCartCount();
+}
+
+function loadCart() {
+
+    cartItemsBox.innerHTML = "";
+
+    if (cartItems.length === 0) {
+        cartItemsBox.innerHTML = "<p>Your cart is empty</p>";
+        cartTotal.textContent = "Total: ₹0";
+        return;
+    }
+
+    let total = 0;
+
+    cartItems.forEach((item, index) => {
+
+        total += item.price;
+
+        const div = document.createElement("div");
+        div.className = "cart-product";
+
+        div.innerHTML = `
+            <div>
+                <h4>${item.name}</h4>
+                <p>₹${item.price}</p>
+            </div>
+
+            <button class="remove-item" data-index="${index}">
+                Remove
+            </button>
+        `;
+
+        cartItemsBox.appendChild(div);
+
+    });
+
+    cartTotal.textContent = `Total: ₹${total}`;
+
+    document.querySelectorAll(".remove-item").forEach(btn => {
+
+        btn.onclick = () => {
+
+            cartItems.splice(btn.dataset.index, 1);
+
+            saveCart();
+            loadCart();
+
+        };
+
+    });
 
 }
 
 updateCartCount();
 
-const addButtons = document.querySelectorAll(
-    ".cart-btn, .buy-btn, .bag-card button, .sports-card button"
-);
-
-addButtons.forEach(button => {
+document.querySelectorAll(
+".buy-btn, .cart-btn, .bag-card button, .sports-card button, .fashion-card button, .watch-card button"
+).forEach(button => {
 
     button.addEventListener("click", () => {
 
@@ -132,51 +189,48 @@ addButtons.forEach(button => {
 
         if (!card) return;
 
-        const productName = card.querySelector("h3").innerText;
+        const name = card.querySelector("h3").textContent;
 
-        cartItems.push(productName);
+        let price = 999;
 
-        localStorage.setItem("cart", JSON.stringify(cartItems));
+        const priceText = card.querySelector(".price, .new-price, .fashion-price span, .bag-price span, .watch-price span");
 
-        updateCartCount();
+        if (priceText) {
+            price = parseInt(priceText.textContent.replace(/[^\d]/g, ""));
+        }
 
-        showMessage(`${productName} added to cart`);
+        cartItems.push({
+            name,
+            price
+        });
 
-        const oldText = button.innerHTML;
+        saveCart();
 
         button.innerHTML = "Added ✓";
-        button.style.background = "#16a34a";
 
         setTimeout(() => {
-
-            button.innerHTML = oldText;
-            button.style.background = "";
-
-        }, 1500);
+            button.innerHTML = "Add to Cart";
+        }, 1200);
 
     });
 
 });
-
 // ==========================================
 // MESSAGE POPUP
 // ==========================================
 
-function showMessage(text) {
+const cartIcon = document.querySelector(".cart-icon");
+const cartPopup = document.querySelector(".cart-popup");
+const closeCart = document.querySelector(".close-cart");
 
-    const message = document.createElement("div");
+cartIcon.addEventListener("click", () => {
+    loadCart();
+    cartPopup.classList.add("active");
+});
 
-    message.className = "cart-message";
-
-    message.innerHTML = text;
-
-    document.body.appendChild(message);
-
-    setTimeout(() => {
-        message.remove();
-    }, 2500);
-
-}
+closeCart.addEventListener("click", () => {
+    cartPopup.classList.remove("active");
+});
 // ==========================================
 // WISHLIST
 // ==========================================
