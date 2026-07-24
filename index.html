@@ -6,216 +6,660 @@
 
     <title>FashionHub | Premium Fashion Store</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
+
 <header>
+
     <div class="logo">
+        <i class="fa-solid fa-bag-shopping"></i>
         Fashion<span>Hub</span>
     </div>
 
     <nav id="navbar">
         <a href="#home">Home</a>
         <a href="#products">Shop</a>
-        <a href="#category">Category</a>
+        <a href="#category">Categories</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <div class="icons">
+    <div class="header-icons">
+
+        <div class="search-box">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Search Products">
+        </div>
+
+        <i class="fa-solid fa-heart"></i>
+
         <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+
         <i class="fa-solid fa-bars" id="menu"></i>
+
     </div>
+
 </header>
 
+<!-- ================= HERO ================= -->
 
-<!-- HERO SECTION -->
 <section class="hero" id="home">
 
-    <div class="hero-text">
-        <h1>Upgrade Your Style</h1>
-        <p>
-            Discover premium fashion collections 
-            made for your everyday lifestyle.
-        </p>
+<div class="hero-text">
 
-        <button>
-            Shop Now
-        </button>
-    </div>
+<span class="tag">
+🔥 New Summer Collection
+</span>
 
-    <div class="hero-image">
-        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
-    </div>
+<h1>
+Upgrade Your
+<span>Fashion</span>
+Style Today
+</h1>
+
+<p>
+
+Discover premium clothing, shoes,
+watches and accessories with amazing
+discounts and unbeatable quality.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#products" class="shop-btn">
+Shop Now
+</a>
+
+<a href="#category" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+<div class="hero-info">
+
+<div>
+
+<h2>10K+</h2>
+<p>Happy Customers</p>
+
+</div>
+
+<div>
+
+<h2>500+</h2>
+<p>Premium Products</p>
+
+</div>
+
+<div>
+
+<h2>4.9★</h2>
+<p>Customer Rating</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Fashion">
+
+</div>
 
 </section>
 
+<!-- ================= CATEGORY ================= -->
 
-
-<!-- CATEGORY -->
 <section id="category">
 
-<h2>Shop By Category</h2>
+<h2 class="section-title">
+
+Shop By Category
+
+</h2>
 
 <div class="category-box">
 
-<div>
+<div class="category-card">
+
 <i class="fa-solid fa-shirt"></i>
+
 <h3>Clothing</h3>
+
+<p>Premium fashion collection</p>
+
 </div>
 
-<div>
+<div class="category-card">
+
 <i class="fa-solid fa-shoe-prints"></i>
+
 <h3>Shoes</h3>
+
+<p>Latest branded footwear</p>
+
 </div>
 
-<div>
+<div class="category-card">
+
 <i class="fa-solid fa-clock"></i>
+
 <h3>Watches</h3>
+
+<p>Luxury watches collection</p>
+
 </div>
 
-<div>
+<div class="category-card">
+
 <i class="fa-solid fa-bag-shopping"></i>
+
 <h3>Bags</h3>
+
+<p>Travel & casual bags</p>
+
 </div>
 
 </div>
 
 </section>
 
-
-
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS START ================= -->
 
 <section id="products">
 
-<h2>Latest Products</h2>
+<h2 class="section-title">
 
+Trending Products
+
+</h2>
 
 <div class="product-container">
-
-
+    <!-- PRODUCT 1 -->
 <div class="product">
 
-<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
+    <span class="badge">NEW</span>
 
-<h3>Premium T-Shirt</h3>
+    <i class="fa-regular fa-heart wishlist"></i>
 
-<p>₹799</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="T-Shirt">
 
-<button onclick="addCart('Premium T-Shirt',799)">
-Add To Cart
-</button>
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Premium T-Shirt</h3>
+
+    <p class="price">
+        ₹799
+        <span>₹999</span>
+    </p>
+
+    <button onclick="addCart('Premium T-Shirt',799)">
+        Add To Cart
+    </button>
 
 </div>
 
-
-
+<!-- PRODUCT 2 -->
 <div class="product">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589903.png">
+    <span class="badge sale">SALE</span>
 
-<h3>Stylish Shoes</h3>
+    <i class="fa-regular fa-heart wishlist"></i>
 
-<p>₹1999</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2589/2589903.png" alt="Shoes">
 
-<button onclick="addCart('Stylish Shoes',1999)">
-Add To Cart
-</button>
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Stylish Shoes</h3>
+
+    <p class="price">
+        ₹1999
+        <span>₹2499</span>
+    </p>
+
+    <button onclick="addCart('Stylish Shoes',1999)">
+        Add To Cart
+    </button>
 
 </div>
 
-
-
+<!-- PRODUCT 3 -->
 <div class="product">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
+    <span class="badge">HOT</span>
 
-<h3>Luxury Watch</h3>
+    <i class="fa-regular fa-heart wishlist"></i>
 
-<p>₹2499</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Watch">
 
-<button onclick="addCart('Luxury Watch',2499)">
-Add To Cart
-</button>
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Luxury Watch</h3>
+
+    <p class="price">
+        ₹2499
+        <span>₹2999</span>
+    </p>
+
+    <button onclick="addCart('Luxury Watch',2499)">
+        Add To Cart
+    </button>
 
 </div>
 
+<!-- PRODUCT 4 -->
+<div class="product">
 
+    <span class="badge">NEW</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3082/3082037.png" alt="Bag">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Travel Backpack</h3>
+
+    <p class="price">
+        ₹1499
+        <span>₹1899</span>
+    </p>
+
+    <button onclick="addCart('Travel Backpack',1499)">
+        Add To Cart
+    </button>
 
 </div>
+
+<!-- PRODUCT 5 -->
+<div class="product">
+
+    <span class="badge sale">20% OFF</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Shirt">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Casual Shirt</h3>
+
+    <p class="price">
+        ₹999
+        <span>₹1299</span>
+    </p>
+
+    <button onclick="addCart('Casual Shirt',999)">
+        Add To Cart
+    </button>
+
+</div>
+
+<!-- PRODUCT 6 -->
+<div class="product">
+
+    <span class="badge">TRENDING</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2589/2589903.png" alt="Sneakers">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Sport Sneakers</h3>
+
+    <p class="price">
+        ₹2299
+        <span>₹2699</span>
+    </p>
+
+    <button onclick="addCart('Sport Sneakers',2299)">
+        Add To Cart
+    </button>
+
+</div>
+
+<!-- PRODUCT 7 -->
+<div class="product">
+
+    <span class="badge">NEW</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Watch">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Classic Watch</h3>
+
+    <p class="price">
+        ₹2799
+        <span>₹3299</span>
+    </p>
+
+    <button onclick="addCart('Classic Watch',2799)">
+        Add To Cart
+    </button>
+
+</div>
+
+<!-- PRODUCT 8 -->
+<div class="product">
+
+    <span class="badge sale">BEST</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3082/3082037.png" alt="Bag">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Leather Bag</h3>
+
+    <p class="price">
+        ₹1899
+        <span>₹2399</span>
+    </p>
+
+    <button onclick="addCart('Leather Bag',1899)">
+        Add To Cart
+    </button>
+
+</div>
+
+<!-- PRODUCT 9 -->
+<div class="product">
+
+    <span class="badge">HOT</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Hoodie">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Winter Hoodie</h3>
+
+    <p class="price">
+        ₹1299
+        <span>₹1699</span>
+    </p>
+
+    <button onclick="addCart('Winter Hoodie',1299)">
+        Add To Cart
+    </button>
+
+</div>
+
+<!-- PRODUCT 10 -->
+<div class="product">
+
+    <span class="badge sale">POPULAR</span>
+
+    <i class="fa-regular fa-heart wishlist"></i>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2589/2589903.png" alt="Running Shoes">
+
+    <div class="stars">
+        ★★★★★
+    </div>
+
+    <h3>Running Shoes</h3>
+
+    <p class="price">
+        ₹2599
+        <span>₹3199</span>
+    </p>
+
+    <button onclick="addCart('Running Shoes',2599)">
+        Add To Cart
+    </button>
+
+</div>
+</div>
+</section>
+
+<!-- ================= OFFER SECTION ================= -->
+
+<section class="offer">
+
+    <div class="offer-content">
+
+        <h2>Special Offer</h2>
+
+        <h1>Up To 50% OFF</h1>
+
+        <p>
+            Shop the latest fashion collection and enjoy exclusive discounts
+            on premium clothing, shoes, watches and accessories.
+        </p>
+
+        <a href="#products" class="shop-btn">
+            Shop Collection
+        </a>
+
+    </div>
 
 </section>
 
-
-
-
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-<h2>About FashionHub</h2>
+    <h2 class="section-title">
+        Why Choose FashionHub?
+    </h2>
 
-<p>
-FashionHub provides modern fashion products 
-with premium quality and affordable prices.
-</p>
+    <div class="about-container">
+
+        <div class="about-box">
+
+            <i class="fa-solid fa-truck-fast"></i>
+
+            <h3>Free Delivery</h3>
+
+            <p>
+                Fast and secure shipping across India.
+            </p>
+
+        </div>
+
+        <div class="about-box">
+
+            <i class="fa-solid fa-shield-heart"></i>
+
+            <h3>Premium Quality</h3>
+
+            <p>
+                Genuine products with the best quality.
+            </p>
+
+        </div>
+
+        <div class="about-box">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                Friendly customer support anytime.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- ================= NEWSLETTER ================= -->
 
+<section class="newsletter">
 
-<!-- CONTACT -->
+    <h2>
+        Subscribe To Our Newsletter
+    </h2>
+
+    <p>
+        Get updates on new arrivals and exclusive discounts.
+    </p>
+
+    <div class="newsletter-box">
+
+        <input
+        type="email"
+        placeholder="Enter your email">
+
+        <button>
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<h2>Contact Us</h2>
+    <h2 class="section-title">
+        Contact Us
+    </h2>
 
-<p>Email: support@fashionhub.com</p>
-<p>Phone: +91 98765 43210</p>
+    <div class="contact-box">
+
+        <div>
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Ahmedabad, Gujarat
+
+        </div>
+
+        <div>
+
+            <i class="fa-solid fa-phone"></i>
+
+            +91 98765 43210
+
+        </div>
+
+        <div>
+
+            <i class="fa-solid fa-envelope"></i>
+
+            support@fashionhub.com
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- ================= FOOTER ================= -->
 
+<footer>
 
-<!-- CART -->
+    <div class="footer-logo">
+
+        Fashion<span>Hub</span>
+
+    </div>
+
+    <p>
+
+        Premium Fashion Store for Clothing,
+        Shoes, Watches & Accessories.
+
+    </p>
+
+    <div class="social-icons">
+
+        <i class="fab fa-facebook-f"></i>
+
+        <i class="fab fa-instagram"></i>
+
+        <i class="fab fa-twitter"></i>
+
+        <i class="fab fa-youtube"></i>
+
+    </div>
+
+    <p class="copyright">
+
+        © 2026 FashionHub.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+<!-- ================= CART ================= -->
 
 <div class="cart">
 
-<h2>Your Cart</h2>
+    <h2>Your Cart</h2>
 
-<div id="cart-items">
+    <div id="cart-items">
+
+    </div>
+
+    <h3>
+
+        Total : ₹<span id="total">0</span>
+
+    </h3>
+
+    <button onclick="checkout()">
+
+        Checkout
+
+    </button>
 
 </div>
 
-<h3>
-Total: ₹<span id="total">0</span>
-</h3>
-
-<button onclick="checkout()">
-Checkout
-</button>
-
-</div>
-
-
-
-<!-- SUCCESS POPUP -->
+<!-- ================= POPUP ================= -->
 
 <div id="popup">
 
-Product Added Successfully!
+    <i class="fa-solid fa-circle-check"></i>
+
+    Product Added Successfully!
 
 </div>
-
-
 
 <script src="script.js"></script>
 
