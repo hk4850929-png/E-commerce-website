@@ -1,832 +1,515 @@
 // ==========================================
-// MOBILE MENU
+// ShopEase JavaScript
 // ==========================================
 
+// Mobile Menu
 const menu = document.querySelector(".menu");
 const nav = document.querySelector("nav");
 
-
-if(menu){
-
-    menu.addEventListener("click",()=>{
-
+if (menu && nav) {
+    menu.addEventListener("click", () => {
         nav.classList.toggle("active");
 
-
         menu.innerHTML = nav.classList.contains("active")
-
-        ? '<i class="fa-solid fa-xmark"></i>'
-
-        : '<i class="fa-solid fa-bars"></i>';
-
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
     });
 
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            menu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+    });
 }
 
+// ==========================================
+// LOGIN BUTTON
+// ==========================================
 
+const loginBtn = document.querySelector(".login-btn");
 
-// Close menu after clicking link
-
-const navLinks = document.querySelectorAll("nav a");
-
-
-navLinks.forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        nav.classList.remove("active");
-
-
-        if(menu){
-
-            menu.innerHTML='<i class="fa-solid fa-bars"></i>';
-
-        }
-
+if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+        window.location.href = "login.html";
     });
-
-});
-
-
+}
 
 // ==========================================
-// BACK TO TOP BUTTON
+// BACK TO TOP
 // ==========================================
-
 
 const topBtn = document.getElementById("topBtn");
 
+if (topBtn) {
 
-window.addEventListener("scroll",()=>{
+    window.addEventListener("scroll", () => {
 
+        if (window.scrollY > 400) {
+            topBtn.style.display = "flex";
+        } else {
+            topBtn.style.display = "none";
+        }
 
-    if(window.scrollY > 400){
+    });
 
-        topBtn.style.display="flex";
-
-        topBtn.style.alignItems="center";
-
-        topBtn.style.justifyContent="center";
-
-    }
-
-    else{
-
-        topBtn.style.display="none";
-
-    }
-
-
-});
-
-
-
-if(topBtn){
-
-    topBtn.addEventListener("click",()=>{
-
+    topBtn.addEventListener("click", () => {
 
         window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
+            top: 0,
+            behavior: "smooth"
         });
 
-
     });
 
 }
-
-
-
-// ==========================================
-// CART COUNTER
-// ==========================================
-
-
-let cartCount = 0;
-
-
-const cartIcon = document.querySelector(".cart-icon");
-
-
-const cartButtons = document.querySelectorAll(
-    ".cart-btn, .buy-btn, .bag-card button, .sports-card button"
-);
-
-
-
-cartButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        cartCount++;
-
-
-        if(cartIcon){
-
-            cartIcon.innerHTML = 
-            `<i class="fa-solid fa-cart-shopping"></i>
-            <span>${cartCount}</span>`;
-
-        }
-
-
-        button.innerHTML="Added ✓";
-
-
-        button.style.background="#16a34a";
-
-
-
-        setTimeout(()=>{
-
-
-            button.innerHTML="Add to Cart";
-
-
-            button.style.background="";
-
-
-        },1500);
-
-
-
-    });
-
-
-});
-
-
-
-// ==========================================
-// WISHLIST HEART ANIMATION
-// ==========================================
-
-
-const wishlistButtons =
-document.querySelectorAll(".wishlist");
-
-
-
-wishlistButtons.forEach(btn=>{
-
-
-    btn.addEventListener("click",()=>{
-
-
-        btn.classList.toggle("liked");
-
-
-        if(btn.classList.contains("liked")){
-
-
-            btn.innerHTML=
-            '<i class="fa-solid fa-heart"></i>';
-
-
-        }
-
-        else{
-
-
-            btn.innerHTML=
-            '<i class="fa-regular fa-heart"></i>';
-
-
-        }
-
-
-    });
-
-
-});
-
-// ==========================================
-// DARK MODE
-// ==========================================
-
-
-const darkBtn = document.querySelector(".dark-mode");
-
-
-if(darkBtn){
-
-
-    darkBtn.addEventListener("click",()=>{
-
-
-        document.body.classList.toggle("dark");
-
-
-        darkBtn.innerHTML =
-        document.body.classList.contains("dark")
-
-        ?
-
-        '<i class="fa-solid fa-sun"></i>'
-
-        :
-
-        '<i class="fa-solid fa-moon"></i>';
-
-
-    });
-
-
-}
-
-
 
 // ==========================================
 // PRODUCT SEARCH
 // ==========================================
 
+const searchInput = document.querySelector(".search-box input");
 
-const searchInput =
-document.querySelector(".search-box input");
-
-
-
-const products =
-document.querySelectorAll(
-".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
+const products = document.querySelectorAll(
+    ".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
 );
 
+if (searchInput) {
 
+    searchInput.addEventListener("keyup", () => {
 
-if(searchInput){
+        const value = searchInput.value.toLowerCase();
 
+        products.forEach(product => {
 
-searchInput.addEventListener("keyup",()=>{
+            const text = product.innerText.toLowerCase();
 
+            if (text.includes(value)) {
 
-    let value =
-    searchInput.value.toLowerCase();
+                product.style.display = "";
 
+            } else {
 
+                product.style.display = "none";
 
-    products.forEach(product=>{
+            }
 
-
-        let text =
-        product.innerText.toLowerCase();
-
-
-
-        if(text.includes(value)){
-
-
-            product.style.display="block";
-
-
-        }
-
-        else{
-
-
-            product.style.display="none";
-
-
-        }
-
+        });
 
     });
 
-
-
-});
-
-
 }
 
-
-
 // ==========================================
-// FLASH SALE TIMER
+// CART SYSTEM
 // ==========================================
 
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-const timer =
-document.querySelector(".sale-timer");
+const cartCount = document.querySelector(".cart-count");
 
+function updateCartCount() {
 
-
-if(timer){
-
-
-    let endTime =
-    new Date().getTime()
-    +
-    (24*60*60*1000);
-
-
-
-    setInterval(()=>{
-
-
-        let now =
-        new Date().getTime();
-
-
-
-        let distance =
-        endTime-now;
-
-
-
-        let hours =
-        Math.floor(
-            distance/(1000*60*60)
-        );
-
-
-
-        let minutes =
-        Math.floor(
-            (distance%(1000*60*60))
-            /(1000*60)
-        );
-
-
-
-        let seconds =
-        Math.floor(
-            (distance%(1000*60))
-            /1000
-        );
-
-
-
-        timer.innerHTML =
-
-        `
-        ${hours}h :
-        ${minutes}m :
-        ${seconds}s
-        `;
-
-
-
-    },1000);
-
-
-}
-
-
-
-// ==========================================
-// SCROLL REVEAL ANIMATION
-// ==========================================
-
-
-const revealElements =
-document.querySelectorAll(
-"section, .shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card, .review-card"
-);
-
-
-
-window.addEventListener("scroll",()=>{
-
-
-    revealElements.forEach(element=>{
-
-
-        let position =
-        element.getBoundingClientRect()
-        .top;
-
-
-
-        let screen =
-        window.innerHeight;
-
-
-
-        if(position < screen-100){
-
-
-            element.classList.add("show");
-
-
-        }
-
-
-
-    });
-
-
-
-});
-
-
-
-// ==========================================
-// NEWSLETTER SUBSCRIBE
-// ==========================================
-
-
-const newsletter =
-document.querySelector(".newsletter-form");
-
-
-
-if(newsletter){
-
-
-newsletter.addEventListener("submit",(e)=>{
-
-
-    e.preventDefault();
-
-
-
-    alert(
-    "🎉 Thank you for subscribing!"
-    );
-
-
-
-    newsletter.reset();
-
-
-
-});
-
-
-}
-
-
-
-// ==========================================
-// REVIEW LIKE BUTTON
-// ==========================================
-
-
-const reviews =
-document.querySelectorAll(".review-card");
-
-
-
-reviews.forEach(review=>{
-
-
-    review.addEventListener("dblclick",()=>{
-
-
-        review.style.transform=
-        "scale(1.05)";
-
-
-        setTimeout(()=>{
-
-
-            review.style.transform="";
-
-
-        },300);
-
-
-
-    });
-
-
-});
-// ==========================================
-// PAGE LOADER
-// ==========================================
-
-
-window.addEventListener("load",()=>{
-
-
-    const loader =
-    document.querySelector(".loader");
-
-
-    if(loader){
-
-
-        loader.style.display="none";
-
-
+    if (cartCount) {
+        cartCount.innerText = cartItems.length;
     }
 
+}
 
-});
+updateCartCount();
 
-
-
-
-// ==========================================
-// CART SYSTEM WITH LOCAL STORAGE
-// ==========================================
-
-
-let cartItems =
-JSON.parse(localStorage.getItem("cart"))
-|| [];
-
-
-
-const addButtons =
-document.querySelectorAll(
-".cart-btn, .buy-btn, .bag-card button, .sports-card button"
+const addButtons = document.querySelectorAll(
+    ".cart-btn, .buy-btn, .bag-card button, .sports-card button"
 );
 
+addButtons.forEach(button => {
 
+    button.addEventListener("click", () => {
 
-addButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        let card =
-        button.closest(
-        ".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
+        const card = button.closest(
+            ".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
         );
 
+        if (!card) return;
 
+        const productName = card.querySelector("h3").innerText;
 
-        if(card){
+        cartItems.push(productName);
 
+        localStorage.setItem("cart", JSON.stringify(cartItems));
 
-            let productName =
-            card.querySelector("h3").innerText;
+        updateCartCount();
 
+        showMessage(`${productName} added to cart`);
 
+        const oldText = button.innerHTML;
 
-            cartItems.push(productName);
+        button.innerHTML = "Added ✓";
+        button.style.background = "#16a34a";
 
+        setTimeout(() => {
 
+            button.innerHTML = oldText;
+            button.style.background = "";
 
-            localStorage.setItem(
-            "cart",
-            JSON.stringify(cartItems)
-            );
-
-
-
-            showCartMessage(productName);
-
-
-
-        }
-
+        }, 1500);
 
     });
 
-
 });
 
+// ==========================================
+// MESSAGE POPUP
+// ==========================================
 
+function showMessage(text) {
 
+    const message = document.createElement("div");
 
-// Cart Notification
+    message.className = "cart-message";
 
-
-function showCartMessage(product){
-
-
-    let message =
-    document.createElement("div");
-
-
-
-    message.className="cart-message";
-
-
-
-    message.innerHTML=
-
-    `
-
-    🛒 ${product}
-
-    added to cart!
-
-    `;
-
-
+    message.innerHTML = text;
 
     document.body.appendChild(message);
 
-
-
-    setTimeout(()=>{
-
-
+    setTimeout(() => {
         message.remove();
-
-
-    },2500);
-
+    }, 2500);
 
 }
-
-
-
-
-
 // ==========================================
-// LOAD SAVED CART COUNT
+// WISHLIST
 // ==========================================
 
+let wishlist = [];
 
+const wishlistButtons = document.querySelectorAll(".wishlist");
 
-const savedCart =
-document.querySelector(".cart-count");
+wishlistButtons.forEach(button => {
 
+    button.addEventListener("click", () => {
 
+        button.classList.toggle("liked");
 
-if(savedCart){
+        const icon = button.querySelector("i");
 
+        if (button.classList.contains("liked")) {
 
-    savedCart.innerText =
-    cartItems.length;
+            icon.classList.remove("fa-regular");
+            icon.classList.add("fa-solid");
 
+            const product = button.closest(
+                ".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
+            );
 
-}
+            if (product) {
+                wishlist.push(product.querySelector("h3").innerText);
+            }
 
+        } else {
 
+            icon.classList.remove("fa-solid");
+            icon.classList.add("fa-regular");
 
+        }
 
-
-// ==========================================
-// WISHLIST COUNTER
-// ==========================================
-
-
-let wishlistCount=0;
-
-
-
-const heartButtons =
-document.querySelectorAll(".wishlist");
-
-
-
-heartButtons.forEach(button=>{
-
-
-button.addEventListener("click",()=>{
-
-
-    if(button.classList.contains("liked")){
-
-
-        wishlistCount--;
-
-
-    }
-
-    else{
-
-
-        wishlistCount++;
-
-
-    }
-
-
-
-    const count =
-    document.querySelector(".wishlist-count");
-
-
-
-    if(count){
-
-
-        count.innerText=wishlistCount;
-
-
-    }
-
-
+    });
 
 });
 
-
-});
-
-
-
-
-
 // ==========================================
-// PRODUCT IMAGE ZOOM
+// CART POPUP
 // ==========================================
 
+const cartIcon = document.querySelector(".cart-icon");
+const cartPopup = document.querySelector(".cart-popup");
+const closeCart = document.querySelector(".close-cart");
+const cartItemsBox = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-footer h3");
 
-const productImages =
+function loadCart() {
+
+    if (!cartItemsBox) return;
+
+    cartItemsBox.innerHTML = "";
+
+    if (cartItems.length === 0) {
+
+        cartItemsBox.innerHTML = "<p>Your cart is empty</p>";
+        cartTotal.innerHTML = "Total: ₹0";
+        return;
+
+    }
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+
+        const div = document.createElement("div");
+
+        div.className = "cart-product";
+
+        div.innerHTML = `
+            <p>${item}</p>
+        `;
+
+        cartItemsBox.appendChild(div);
+
+        total += 999;
+
+    });
+
+    cartTotal.innerHTML = `Total: ₹${total}`;
+
+}
+
+if (cartIcon) {
+
+    cartIcon.addEventListener("click", () => {
+
+        loadCart();
+
+        cartPopup.classList.add("active");
+
+    });
+
+}
+
+if (closeCart) {
+
+    closeCart.addEventListener("click", () => {
+
+        cartPopup.classList.remove("active");
+
+    });
+
+}
+
+// ==========================================
+// NEWSLETTER
+// ==========================================
+
+const newsletter = document.querySelector(".newsletter-form");
+
+if (newsletter) {
+
+    newsletter.addEventListener("submit", e => {
+
+        e.preventDefault();
+
+        alert("🎉 Thank you for subscribing!");
+
+        newsletter.reset();
+
+    });
+
+}
+
+// ==========================================
+// IMAGE ZOOM
+// ==========================================
+
 document.querySelectorAll(
-".shoe-card img, .fashion-card img, .bag-card img"
-);
+".shoe-card img, .electronic-card img, .fashion-card img, .watch-card img, .bag-card img, .sports-card img"
+).forEach(img => {
 
+    img.addEventListener("mouseenter", () => {
 
-
-productImages.forEach(img=>{
-
-
-    img.addEventListener("mouseenter",()=>{
-
-
-        img.style.transform="scale(1.15)";
-
+        img.style.transform = "scale(1.08)";
+        img.style.transition = ".4s";
 
     });
 
+    img.addEventListener("mouseleave", () => {
 
-
-    img.addEventListener("mouseleave",()=>{
-
-
-        img.style.transform="scale(1)";
-
+        img.style.transform = "scale(1)";
 
     });
-
-
 
 });
-
-
-
-
 
 // ==========================================
 // PREVENT IMAGE DRAG
 // ==========================================
 
+document.querySelectorAll("img").forEach(img => {
 
-document.querySelectorAll("img")
-.forEach(img=>{
-
-
-    img.addEventListener(
-    "dragstart",
-    e=>e.preventDefault()
-    );
-
+    img.draggable = false;
 
 });
-
-
-
-
 
 // ==========================================
-// MOBILE TOUCH EFFECT
+// REVIEW ANIMATION
 // ==========================================
 
+document.querySelectorAll(".review-card").forEach(card => {
 
-if(window.innerWidth <= 768){
+    card.addEventListener("dblclick", () => {
 
+        card.style.transform = "scale(1.05)";
 
-document.querySelectorAll(
-".shoe-card, .fashion-card, .bag-card"
-)
+        setTimeout(() => {
 
-.forEach(card=>{
+            card.style.transform = "";
 
+        }, 300);
 
-card.addEventListener("click",()=>{
-
-
-    card.classList.toggle("mobile-active");
-
+    });
 
 });
-// CART OPEN CLOSE
+// ==========================================
+// SCROLL REVEAL ANIMATION
+// ==========================================
 
-const cartIcon = document.querySelector(".cart-icon");
+const revealElements = document.querySelectorAll(`
+section,
+.shoe-card,
+.electronic-card,
+.fashion-card,
+.watch-card,
+.bag-card,
+.sports-card,
+.review-card
+`.replace(/\n/g, ""));
 
-const cartPopup = document.querySelector(".cart-popup");
+function revealOnScroll() {
 
-const closeCart = document.querySelector(".close-cart");
+    revealElements.forEach(element => {
 
+        const top = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
-cartIcon.addEventListener("click",()=>{
+        if (top < windowHeight - 100) {
+            element.classList.add("show");
+        }
 
-    cartPopup.classList.add("active");
-
-});
-
-
-closeCart.addEventListener("click",()=>{
-
-    cartPopup.classList.remove("active");
-
-});
-
-});
-
+    });
 
 }
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// ==========================================
+// FLASH SALE TIMER (24 HOURS)
+// ==========================================
+
+const timer = document.querySelector(".sale-timer");
+
+if (timer) {
+
+    const endTime = Date.now() + 24 * 60 * 60 * 1000;
+
+    function updateTimer() {
+
+        const distance = endTime - Date.now();
+
+        if (distance <= 0) {
+            timer.innerHTML = "Offer Ended";
+            return;
+        }
+
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        timer.innerHTML = `${hours}h : ${minutes}m : ${seconds}s`;
+
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+}
+
+// ==========================================
+// MOBILE CARD EFFECT
+// ==========================================
+
+if (window.innerWidth <= 768) {
+
+    document.querySelectorAll(
+        ".shoe-card, .electronic-card, .fashion-card, .watch-card, .bag-card, .sports-card"
+    ).forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            card.classList.toggle("mobile-active");
+
+        });
+
+    });
+
+}
+
+// ==========================================
+// OPTIONAL DARK MODE
+// ==========================================
+
+const darkBtn = document.querySelector(".dark-mode");
+
+if (darkBtn) {
+
+    darkBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        darkBtn.innerHTML = document.body.classList.contains("dark")
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+
+    });
+
+}
+
+// ==========================================
+// PAGE LOADER
+// ==========================================
+
+window.addEventListener("load", () => {
+
+    const loader = document.querySelector(".loader");
+
+    if (loader) {
+        loader.style.display = "none";
+    }
+
+});
+
+// ==========================================
+// CHECKOUT BUTTON
+// ==========================================
+
+const checkoutBtn = document.querySelector(".cart-footer button");
+
+if (checkoutBtn) {
+
+    checkoutBtn.addEventListener("click", () => {
+
+        if (cartItems.length === 0) {
+
+            alert("🛒 Your cart is empty!");
+
+            return;
+
+        }
+
+        alert("✅ Thank you for shopping with ShopEase!");
+
+        cartItems = [];
+
+        localStorage.removeItem("cart");
+
+        updateCartCount();
+
+        loadCart();
+
+    });
+
+}
+
+// ==========================================
+// WEBSITE READY
+// ==========================================
+
+console.log("✅ ShopEase Loaded Successfully");
