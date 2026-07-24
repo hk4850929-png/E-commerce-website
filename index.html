@@ -1,643 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>FashionHub | Premium Fashion Store</title>
 
-    <meta name="description"
-        content="FashionHub - Shop premium Shoes, T-Shirts, Hoodies, Watches, Bags and Accessories.">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header>
-
     <div class="logo">
-        <h2>Fashion<span>Hub</span></h2>
+        Fashion<span>Hub</span>
     </div>
 
-    <nav>
-
-        <ul class="nav-links">
-
-            <li><a href="#home" class="active">Home</a></li>
-
-            <li><a href="#products">Products</a></li>
-
-            <li><a href="#categories">Categories</a></li>
-
-            <li><a href="#about">About</a></li>
-
-            <li><a href="#contact">Contact</a></li>
-
-        </ul>
-
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#category">Category</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <div class="nav-icons">
-
-        <div class="search-box">
-
-            <input type="text"
-                placeholder="Search Products...">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-        </div>
-
-        <button class="icon-btn">
-
-            <i class="fa-regular fa-heart"></i>
-
-        </button>
-
-        <button class="icon-btn cart-btn">
-
-            <i class="fa-solid fa-cart-shopping"></i>
-
-            <span id="cart-count">0</span>
-
-        </button>
-
-        <button class="menu-btn">
-
-            <i class="fa-solid fa-bars"></i>
-
-        </button>
-
+    <div class="icons">
+        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+        <i class="fa-solid fa-bars" id="menu"></i>
     </div>
-
 </header>
 
-<!-- ================= HERO SECTION ================= -->
 
+<!-- HERO SECTION -->
 <section class="hero" id="home">
 
-    <div class="hero-content">
-
-        <span class="tag">
-            🔥 New Fashion Collection 2026
-        </span>
-
-        <h1>
-            Upgrade Your Style
-            With Premium Fashion
-        </h1>
-
+    <div class="hero-text">
+        <h1>Upgrade Your Style</h1>
         <p>
-
-            Discover the latest collection of Shoes,
-            Watches, T-Shirts, Hoodies,
-            Bags and Accessories at unbeatable prices.
-
+            Discover premium fashion collections 
+            made for your everyday lifestyle.
         </p>
 
-        <div class="hero-buttons">
-
-            <a href="#products" class="btn">
-                Shop Now
-            </a>
-
-            <a href="#categories" class="btn-outline">
-                Explore
-            </a>
-
-        </div>
-
-        <div class="hero-stats">
-
-            <div>
-                <h2>15K+</h2>
-                <p>Happy Customers</p>
-            </div>
-
-            <div>
-                <h2>250+</h2>
-                <p>Premium Products</p>
-            </div>
-
-            <div>
-                <h2>4.9★</h2>
-                <p>Customer Rating</p>
-            </div>
-
-        </div>
-
+        <button>
+            Shop Now
+        </button>
     </div>
 
     <div class="hero-image">
-
-       <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800" alt="Fashion Banner">
-
-    </div>
-
-</section>
-<!-- ================= PRODUCTS ================= -->
-
-<section class="products" id="products">
-
-    <div class="section-title">
-        <h2>Trending Products</h2>
-        <p>Choose your favorite fashion products.</p>
-    </div>
-
-    <div class="product-container">
-
-        <!-- Product 1 -->
-        <div class="product-card">
-
-            <span class="sale">-20%</span>
-
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Nike Air Max">
-
-            <div class="product-info">
-
-                <h3>Nike Air Max</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹2,999</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Product 2 -->
-
-        <div class="product-card">
-
-           <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600">
-
-            <div class="product-info">
-
-                <h3>Smart Watch</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹1,999</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Product 3 -->
-
-        <div class="product-card">
-
-           <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600">
-
-            <div class="product-info">
-
-                <h3>Premium T-Shirt</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹799</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Product 4 -->
-
-        <div class="product-card">
-
-           <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600">
-
-            <div class="product-info">
-
-                <h3>Leather Bag</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹1,499</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Product 5 -->
-
-        <div class="product-card">
-
-           <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600">
-
-            <div class="product-info">
-
-                <h3>Winter Hoodie</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹1,299</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Product 6 -->
-
-        <div class="product-card">
-
-           <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600">
-
-            <div class="product-info">
-
-                <h3>Sports Cap</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h4>₹499</h4>
-
-                <div class="product-buttons">
-
-                    <button class="wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <button class="cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Add to Cart
-                    </button>
-
-                    <button class="buy">
-                        Buy Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- ================= CATEGORIES ================= -->
-
-<section class="categories" id="categories">
-
-    <div class="section-title">
-        <h2>Shop By Category</h2>
-        <p>Choose your favorite fashion collection.</p>
-    </div>
-
-    <div class="category-container">
-
-        <div class="category-card">
-           <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600" alt="Running Shoes">
-            <h3>Shoes</h3>
-        </div>
-
-        <div class="category-card">
-           <img src="https://images.unsplash.com/photo-1586401100295-7a8096fd231a?w=600" alt="Gym Gloves">
-            <h3>Clothing</h3>
-        </div>
-
-        <div class="category-card">
-           <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600">
-            <h3>Watches</h3>
-        </div>
-
-        <div class="category-card">
-           <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=600">
-            <h3>Bags</h3>
-        </div>
-
+        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
     </div>
 
 </section>
 
-<!-- ================= ABOUT ================= -->
 
-<section class="about" id="about">
 
-    <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600">
-    </div>
+<!-- CATEGORY -->
+<section id="category">
 
-    <div class="about-content">
+<h2>Shop By Category</h2>
 
-        <h2>About FashionHub</h2>
+<div class="category-box">
 
-        <p>
-            FashionHub offers premium quality fashion products including
-            shoes, clothing, watches and accessories at affordable prices.
-            We focus on quality, comfort and modern style.
-        </p>
+<div>
+<i class="fa-solid fa-shirt"></i>
+<h3>Clothing</h3>
+</div>
 
-        <ul>
-            <li>✔ Premium Quality Products</li>
-            <li>✔ Secure Payment</li>
-            <li>✔ Fast Delivery</li>
-            <li>✔ 24×7 Customer Support</li>
-        </ul>
+<div>
+<i class="fa-solid fa-shoe-prints"></i>
+<h3>Shoes</h3>
+</div>
 
-        <a href="#products" class="btn">
-            Shop Collection
-        </a>
+<div>
+<i class="fa-solid fa-clock"></i>
+<h3>Watches</h3>
+</div>
 
-    </div>
-
-</section>
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-    <div class="section-title">
-        <h2>Contact Us</h2>
-        <p>Have questions? We'd love to hear from you.</p>
-    </div>
-
-    <form class="contact-form">
-
-        <input type="text"
-               placeholder="Your Name"
-               required>
-
-        <input type="email"
-               placeholder="Email Address"
-               required>
-
-        <input type="tel"
-               placeholder="Phone Number"
-               required>
-
-        <textarea
-            placeholder="Your Message"
-            rows="6"></textarea>
-
-        <button type="submit">
-            Send Message
-        </button>
-
-    </form>
-
-</section>
-
-<!-- ================= CART SIDEBAR ================= -->
-
-<div class="cart-sidebar">
-
-    <div class="cart-header">
-
-        <h2>Your Cart</h2>
-
-        <button id="close-cart">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-    </div>
-
-    <div class="cart-items">
-
-        <!-- Items added using JavaScript -->
-
-    </div>
-
-    <div class="cart-footer">
-
-        <h3>
-            Total :
-            <span id="total-price">
-                ₹0
-            </span>
-        </h3>
-
-       <!-- Checkout Modal -->
-
-<div class="checkout-modal">
-
-    <div class="checkout-box">
-
-        <h2>Checkout</h2>
-
-        <input type="text" id="customerName" placeholder="Full Name">
-
-        <input type="tel" id="customerPhone" placeholder="Mobile Number">
-
-        <input type="text" id="customerAddress" placeholder="Delivery Address">
-
-        <select id="paymentMethod">
-            <option>Cash on Delivery</option>
-            <option>UPI</option>
-            <option>Credit Card</option>
-            <option>Debit Card</option>
-        </select>
-
-        <button id="placeOrder">
-            Place Order
-        </button>
-
-        <button id="cancelCheckout">
-            Cancel
-        </button>
-
-    </div>
+<div>
+<i class="fa-solid fa-bag-shopping"></i>
+<h3>Bags</h3>
+</div>
 
 </div>
 
-<!-- Order Success -->
+</section>
 
-<div id="orderPopup">
 
-    <i class="fa-solid fa-circle-check"></i>
 
-    <h2>Order Placed Successfully!</h2>
+<!-- PRODUCTS -->
 
-    <p>
-        Thank you for shopping with FashionHub.
-        Your order will be delivered within 3-5 business days.
-    </p>
+<section id="products">
 
-    <button id="continueShopping">
-        Continue Shopping
-    </button>
+<h2>Latest Products</h2>
+
+
+<div class="product-container">
+
+
+<div class="product">
+
+<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
+
+<h3>Premium T-Shirt</h3>
+
+<p>₹799</p>
+
+<button onclick="addCart('Premium T-Shirt',799)">
+Add To Cart
+</button>
 
 </div>
 
-    </div>
+
+
+<div class="product">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589903.png">
+
+<h3>Stylish Shoes</h3>
+
+<p>₹1999</p>
+
+<button onclick="addCart('Stylish Shoes',1999)">
+Add To Cart
+</button>
 
 </div>
 
-<!-- ================= SUCCESS POPUP ================= -->
+
+
+<div class="product">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
+
+<h3>Luxury Watch</h3>
+
+<p>₹2499</p>
+
+<button onclick="addCart('Luxury Watch',2499)">
+Add To Cart
+</button>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About FashionHub</h2>
+
+<p>
+FashionHub provides modern fashion products 
+with premium quality and affordable prices.
+</p>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<p>Email: support@fashionhub.com</p>
+<p>Phone: +91 98765 43210</p>
+
+</section>
+
+
+
+<!-- CART -->
+
+<div class="cart">
+
+<h2>Your Cart</h2>
+
+<div id="cart-items">
+
+</div>
+
+<h3>
+Total: ₹<span id="total">0</span>
+</h3>
+
+<button onclick="checkout()">
+Checkout
+</button>
+
+</div>
+
+
+
+<!-- SUCCESS POPUP -->
 
 <div id="popup">
 
-    <i class="fa-solid fa-circle-check"></i>
-
-    <p>Product Added Successfully!</p>
+Product Added Successfully!
 
 </div>
 
-<!-- ================= FOOTER ================= -->
 
-<footer>
-
-    <div class="footer-container">
-
-        <div class="footer-box">
-
-            <h2>FashionHub</h2>
-
-            <p>
-                Premium Fashion Store for Shoes,
-                Clothing, Watches and Accessories.
-            </p>
-
-        </div>
-
-        <div class="footer-box">
-
-            <h3>Quick Links</h3>
-
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#categories">Categories</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-
-        </div>
-
-        <div class="footer-box">
-
-            <h3>Follow Us</h3>
-
-            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-
-            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-
-            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-
-            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-
-        </div>
-
-    </div>
-
-    <div class="copyright">
-
-        © 2026 FashionHub. All Rights Reserved.
-
-    </div>
-
-</footer>
 
 <script src="script.js"></script>
 
