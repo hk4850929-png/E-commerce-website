@@ -462,6 +462,8 @@ nav a:hover{
     height:190px;
     object-fit:contain;
     margin:auto;
+    margin-top:35px;
+    margin-bottom:20px;
     transition:.4s;
 }
 
@@ -514,6 +516,7 @@ nav a:hover{
 
 .product h3{
     font-size:22px;
+    margin-top:15px;
     margin-bottom:12px;
 }
 
