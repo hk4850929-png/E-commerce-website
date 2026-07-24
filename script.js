@@ -1,620 +1,323 @@
-// ==========================================
-// ShopEase JavaScript
-// ==========================================
+// ======================================
+// MOBILE MENU
+// ======================================
 
-document.addEventListener("DOMContentLoaded", () => {
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-    // ==========================================
-    // MOBILE MENU
-    // ==========================================
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
 
-    const menu = document.querySelector(".menu");
-    const nav = document.querySelector("nav");
-
-    if (menu && nav) {
-
-        menu.addEventListener("click", () => {
-
-            nav.classList.toggle("active");
-
-            menu.innerHTML = nav.classList.contains("active")
-                ? '<i class="fa-solid fa-xmark"></i>'
-                : '<i class="fa-solid fa-bars"></i>';
-
-        });
-
-        document.querySelectorAll("nav a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                nav.classList.remove("active");
-
-                menu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-
-            });
-
-        });
-
+    if (navLinks.classList.contains("active")) {
+        menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    } else {
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
     }
+});
 
-    // ==========================================
-    // LOGIN BUTTON
-    // ==========================================
+// ======================================
+// CART
+// ======================================
 
-    const loginBtn = document.querySelector(".login-btn");
+const cartBtn = document.querySelector(".cart-btn");
+const cartSidebar = document.querySelector(".cart-sidebar");
+const closeCart = document.getElementById("close-cart");
+const cartItems = document.querySelector(".cart-items");
+const totalPrice = document.getElementById("total-price");
+const cartCount = document.getElementById("cart-count");
 
-    if (loginBtn) {
+let total = 0;
+let count = 0;
 
-        loginBtn.addEventListener("click", () => {
+// Open Cart
+cartBtn.addEventListener("click", () => {
+    cartSidebar.classList.add("active");
+});
 
-            window.location.href = "login.html";
+// Close Cart
+closeCart.addEventListener("click", () => {
+    cartSidebar.classList.remove("active");
+});
 
-        });
+// ======================================
+// POPUP
+// ======================================
 
-    }
+const popup = document.getElementById("popup");
 
-    // ==========================================
-    // BACK TO TOP
-    // ==========================================
+function showPopup() {
+    popup.classList.add("show");
 
-    const topBtn = document.getElementById("topBtn");
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 2000);
+}
 
-    if (topBtn) {
+// ======================================
+// ADD TO CART
+// ======================================
 
-        window.addEventListener("scroll", () => {
+const addButtons = document.querySelectorAll(".cart");
 
-            topBtn.style.display =
-                window.scrollY > 400 ? "flex" : "none";
+addButtons.forEach(button => {
 
-        });
+    button.addEventListener("click", () => {
 
-        topBtn.addEventListener("click", () => {
+        const card = button.closest(".product-card");
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+        const name = card.querySelector("h3").innerText;
 
-        });
+        const price = parseInt(
+            card.querySelector("h4")
+            .innerText.replace("₹", "")
+            .replace(",", "")
+        );
 
-    }
+        const image = card.querySelector("img").src;
 
-    // ==========================================
-    // SEARCH
-    // ==========================================
+        total += price;
+        count++;
 
-    const searchInput = document.querySelector(".search-box input");
+        totalPrice.innerText = "₹" + total.toLocaleString();
 
-    const products = document.querySelectorAll(
-        ".shoe-card,.electronic-card,.fashion-card,.watch-card,.bag-card,.sports-card"
-    );
+        cartCount.innerText = count;
 
-    if (searchInput) {
+        const item = document.createElement("div");
 
-        searchInput.addEventListener("keyup", () => {
+        item.classList.add("cart-item");
 
-            const value = searchInput.value.toLowerCase();
+        item.innerHTML = `
+            <img src="${image}" width="70">
 
-            products.forEach(product => {
+            <div>
 
-                const text = product.innerText.toLowerCase();
+                <h4>${name}</h4>
 
-                product.style.display =
-                    text.includes(value) ? "" : "none";
+                <p>₹${price.toLocaleString()}</p>
 
-            });
+            </div>
 
-        });
+            <button class="remove-item">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        `;
 
-    }
+        cartItems.appendChild(item);
 
-    // ==========================================
-    // CART VARIABLES
-    // ==========================================
+        showPopup();
 
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        cartSidebar.classList.add("active");
 
-    const cartIcon = document.querySelector(".cart-icon");
-    const cartPopup = document.querySelector(".cart-popup");
-    const closeCart = document.querySelector(".close-cart");
-    const cartCount = document.querySelector(".cart-count");
-    const cartItemsBox = document.querySelector(".cart-items");
-    const cartTotal = document.querySelector(".cart-footer h3");
+        item.querySelector(".remove-item").addEventListener("click", () => {
 
-    function updateCartCount() {
+            item.remove();
 
-        if (cartCount) {
+            total -= price;
+            count--;
 
-            cartCount.textContent = cartItems.length;
+            if (total < 0) total = 0;
+            if (count < 0) count = 0;
 
-        }
-
-    }
-
-    function saveCart() {
-
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-
-        updateCartCount();
-
-    }
-
-    updateCartCount();
-        // ==========================================
-    // CART FUNCTIONS
-    // ==========================================
-
-    function loadCart() {
-
-        if (!cartItemsBox) return;
-
-        cartItemsBox.innerHTML = "";
-
-        if (cartItems.length === 0) {
-
-            cartItemsBox.innerHTML = "<p>Your cart is empty.</p>";
-
-            if (cartTotal) {
-                cartTotal.innerHTML = "Total: ₹0";
-            }
-
-            return;
-        }
-
-        let total = 0;
-
-        cartItems.forEach((item, index) => {
-
-            total += item.price * item.qty;
-
-            const div = document.createElement("div");
-
-            div.className = "cart-product";
-
-            div.innerHTML = `
-                <div class="cart-product-info">
-                    <h4>${item.name}</h4>
-                    <p>₹${item.price}</p>
-
-                    <div class="qty-box">
-                        <button class="minus" data-index="${index}">−</button>
-
-                        <span>${item.qty}</span>
-
-                        <button class="plus" data-index="${index}">+</button>
-                    </div>
-                </div>
-
-                <button class="remove-item" data-index="${index}">
-                    Remove
-                </button>
-            `;
-
-            cartItemsBox.appendChild(div);
-
-        });
-
-        if (cartTotal) {
-
-            cartTotal.innerHTML = `Total: ₹${total}`;
-
-        }
-
-        // Remove Item
-
-        document.querySelectorAll(".remove-item").forEach(btn => {
-
-            btn.onclick = () => {
-
-                cartItems.splice(btn.dataset.index, 1);
-
-                saveCart();
-
-                loadCart();
-
-            };
-
-        });
-
-        // Increase Qty
-
-        document.querySelectorAll(".plus").forEach(btn => {
-
-            btn.onclick = () => {
-
-                cartItems[btn.dataset.index].qty++;
-
-                saveCart();
-
-                loadCart();
-
-            };
-
-        });
-
-        // Decrease Qty
-
-        document.querySelectorAll(".minus").forEach(btn => {
-
-            btn.onclick = () => {
-
-                if (cartItems[btn.dataset.index].qty > 1) {
-
-                    cartItems[btn.dataset.index].qty--;
-
-                } else {
-
-                    cartItems.splice(btn.dataset.index, 1);
-
-                }
-
-                saveCart();
-
-                loadCart();
-
-            };
-
-        });
-
-    }
-
-    // ==========================================
-    // ADD TO CART
-    // ==========================================
-
-    document.querySelectorAll(
-        ".buy-btn,.cart-btn,.fashion-card button,.watch-card button,.bag-card button,.sports-card button"
-    ).forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const card = button.closest(
-                ".shoe-card,.electronic-card,.fashion-card,.watch-card,.bag-card,.sports-card"
-            );
-
-            if (!card) return;
-
-            const name = card.querySelector("h3").innerText;
-
-            let price = 999;
-
-            const priceElement = card.querySelector(
-                ".price,.new-price,.fashion-price,.bag-price,.watch-price"
-            );
-
-            if (priceElement) {
-
-                price = parseInt(
-                    priceElement.textContent.replace(/[^\d]/g, "")
-                );
-
-            }
-
-            const existing = cartItems.find(item => item.name === name);
-
-            if (existing) {
-
-                existing.qty++;
-
-            } else {
-
-                cartItems.push({
-                    name,
-                    price,
-                    qty: 1
-                });
-
-            }
-
-            saveCart();
-
-            loadCart();
-
-            button.innerHTML = "Added ✓";
-
-            setTimeout(() => {
-
-                button.innerHTML = "Add to Cart";
-
-            }, 1200);
+            totalPrice.innerText = "₹" + total.toLocaleString();
+            cartCount.innerText = count;
 
         });
 
     });
-
-    if (cartIcon) {
-
-        cartIcon.addEventListener("click", () => {
-
-            loadCart();
-
-            cartPopup.classList.add("active");
-
-        });
-
-    }
-
-    if (closeCart) {
-
-        closeCart.addEventListener("click", () => {
-
-            cartPopup.classList.remove("active");
-
-        });
-
-    }
-        // ==========================================
-    // WISHLIST
-    // ==========================================
-
-    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-    document.querySelectorAll(".wishlist").forEach(button => {
-
-        const icon = button.querySelector("i");
-
-        button.addEventListener("click", () => {
-
-            const card = button.closest(
-                ".shoe-card,.electronic-card,.fashion-card,.watch-card,.bag-card,.sports-card"
-            );
-
-            if (!card) return;
-
-            const name = card.querySelector("h3").innerText;
-
-            if (wishlist.includes(name)) {
-
-                wishlist = wishlist.filter(item => item !== name);
-
-                icon.classList.remove("fa-solid");
-                icon.classList.add("fa-regular");
-
-            } else {
-
-                wishlist.push(name);
-
-                icon.classList.remove("fa-regular");
-                icon.classList.add("fa-solid");
-
-            }
-
-            localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-        });
-
-    });
-
-    // ==========================================
-    // NEWSLETTER
-    // ==========================================
-
-    const newsletter = document.querySelector(".newsletter-form");
-
-    if (newsletter) {
-
-        newsletter.addEventListener("submit", e => {
-
-            e.preventDefault();
-
-            alert("🎉 Thank you for subscribing!");
-
-            newsletter.reset();
-
-        });
-
-    }
-
-    // ==========================================
-    // IMAGE ZOOM EFFECT
-    // ==========================================
-
-    document.querySelectorAll(
-        ".shoe-card img,.electronic-card img,.fashion-card img,.watch-card img,.bag-card img,.sports-card img"
-    ).forEach(img => {
-
-        img.draggable = false;
-
-        img.addEventListener("mouseenter", () => {
-
-            img.style.transform = "scale(1.08)";
-            img.style.transition = ".4s";
-
-        });
-
-        img.addEventListener("mouseleave", () => {
-
-            img.style.transform = "scale(1)";
-
-        });
-
-    });
-
-    // ==========================================
-    // REVIEW ANIMATION
-    // ==========================================
-
-    document.querySelectorAll(".review-card").forEach(card => {
-
-        card.addEventListener("dblclick", () => {
-
-            card.style.transform = "scale(1.05)";
-
-            setTimeout(() => {
-
-                card.style.transform = "";
-
-            }, 300);
-
-        });
-
-    });
-
-    // ==========================================
-    // SCROLL REVEAL
-    // ==========================================
-
-    const revealItems = document.querySelectorAll(
-        "section,.shoe-card,.electronic-card,.fashion-card,.watch-card,.bag-card,.sports-card,.review-card"
-    );
-
-    function revealOnScroll() {
-
-        revealItems.forEach(item => {
-
-            if (item.getBoundingClientRect().top < window.innerHeight - 100) {
-
-                item.classList.add("show");
-
-            }
-
-        });
-
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-
-    revealOnScroll();
-
-    // ==========================================
-    // FLASH SALE TIMER
-    // ==========================================
-
-    const timer = document.querySelector(".sale-timer");
-
-    if (timer) {
-
-        let endTime = Date.now() + (24 * 60 * 60 * 1000);
-
-        function updateTimer() {
-
-            const distance = endTime - Date.now();
-
-            if (distance <= 0) {
-
-                timer.innerHTML = "Offer Ended";
-
-                return;
-
-            }
-
-            const h = Math.floor(distance / (1000 * 60 * 60));
-
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-            timer.innerHTML = `${h}h : ${m}m : ${s}s`;
-
-        }
-
-        updateTimer();
-
-        setInterval(updateTimer, 1000);
-
-    }
-        // ==========================================
-    // MOBILE CARD EFFECT
-    // ==========================================
-
-    if (window.innerWidth <= 768) {
-
-        document.querySelectorAll(
-            ".shoe-card,.electronic-card,.fashion-card,.watch-card,.bag-card,.sports-card"
-        ).forEach(card => {
-
-            card.addEventListener("click", () => {
-
-                card.classList.toggle("mobile-active");
-
-            });
-
-        });
-
-    }
-
-    // ==========================================
-    // DARK MODE
-    // ==========================================
-
-    const darkBtn = document.querySelector(".dark-mode");
-
-    if (darkBtn) {
-
-        darkBtn.addEventListener("click", () => {
-
-            document.body.classList.toggle("dark");
-
-            darkBtn.innerHTML = document.body.classList.contains("dark")
-                ? '<i class="fa-solid fa-sun"></i>'
-                : '<i class="fa-solid fa-moon"></i>';
-
-        });
-
-    }
-
-    // ==========================================
-    // PAGE LOADER
-    // ==========================================
-
-    const loader = document.querySelector(".loader");
-
-    window.addEventListener("load", () => {
-
-        if (loader) {
-
-            loader.style.display = "none";
-
-        }
-
-    });
-
-    // ==========================================
-    // CHECKOUT
-    // ==========================================
-
-    const checkoutBtn = document.querySelector(".cart-footer button");
-
-    if (checkoutBtn) {
-
-        checkoutBtn.addEventListener("click", () => {
-
-            if (cartItems.length === 0) {
-
-                alert("🛒 Your cart is empty!");
-
-                return;
-
-            }
-
-            const total = cartItems.reduce((sum, item) => {
-                return sum + (item.price * item.qty);
-            }, 0);
-
-            alert(
-                `✅ Order Placed Successfully!\n\nItems: ${cartItems.length}\nTotal: ₹${total}\n\nThank you for shopping with ShopEase!`
-            );
-
-            cartItems = [];
-
-            saveCart();
-
-            loadCart();
-
-            if (cartPopup) {
-
-                cartPopup.classList.remove("active");
-
-            }
-
-        });
-
-    }
-
-    // ==========================================
-    // WEBSITE READY
-    // ==========================================
-
-    console.log("✅ ShopEase Loaded Successfully");
 
 });
+
+// ======================================
+// WISHLIST
+// ======================================
+
+const wishlistButtons = document.querySelectorAll(".wishlist");
+
+wishlistButtons.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        const icon = btn.querySelector("i");
+
+        if (icon.classList.contains("fa-regular")) {
+
+            icon.classList.remove("fa-regular");
+            icon.classList.add("fa-solid");
+
+            btn.style.background = "#ff4d6d";
+
+        } else {
+
+            icon.classList.remove("fa-solid");
+            icon.classList.add("fa-regular");
+
+            btn.style.background = "#222";
+
+        }
+
+    });
+
+});
+// ======================================
+// LIVE SEARCH
+// ======================================
+
+const searchInput = document.querySelector(".search-box input");
+const productCards = document.querySelectorAll(".product-card");
+
+searchInput.addEventListener("keyup", () => {
+
+    const value = searchInput.value.toLowerCase();
+
+    productCards.forEach(card => {
+
+        const productName = card.querySelector("h3").innerText.toLowerCase();
+
+        if (productName.includes(value)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+// ======================================
+// BUY NOW
+// ======================================
+
+const buyButtons = document.querySelectorAll(".buy");
+
+buyButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        alert("Thank you for shopping with FashionHub!");
+
+    });
+
+});
+
+// ======================================
+// ACTIVE NAVIGATION
+// ======================================
+
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        if (pageYOffset >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+// ======================================
+// SCROLL TO TOP BUTTON
+// ======================================
+
+const scrollBtn = document.createElement("button");
+
+scrollBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+
+scrollBtn.classList.add("scroll-top");
+
+document.body.appendChild(scrollBtn);
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 300) {
+
+        scrollBtn.classList.add("show");
+
+    } else {
+
+        scrollBtn.classList.remove("show");
+
+    }
+
+});
+
+scrollBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+// ======================================
+// HEADER SHADOW
+// ======================================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 60) {
+
+        header.style.boxShadow = "0 10px 25px rgba(0,0,0,.35)";
+
+    } else {
+
+        header.style.boxShadow = "none";
+
+    }
+
+});
+
+// ======================================
+// CONTACT FORM
+// ======================================
+
+const contactForm = document.querySelector(".contact-form");
+
+contactForm.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    alert("Your message has been sent successfully!");
+
+    contactForm.reset();
+
+});
+
+// ======================================
+// LOADING ANIMATION
+// ======================================
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
+
+});
+
+console.log("FashionHub Loaded Successfully 🚀");
