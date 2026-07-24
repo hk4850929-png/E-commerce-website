@@ -321,3 +321,56 @@ window.addEventListener("load", () => {
 });
 
 console.log("FashionHub Loaded Successfully 🚀");
+const checkoutBtn = document.querySelector(".checkout-btn");
+const checkoutModal = document.querySelector(".checkout-modal");
+const cancelCheckout = document.getElementById("cancelCheckout");
+const placeOrder = document.getElementById("placeOrder");
+const orderPopup = document.getElementById("orderPopup");
+const continueShopping = document.getElementById("continueShopping");
+
+checkoutBtn.addEventListener("click", () => {
+
+    if(cartItems.children.length === 0){
+        alert("Your cart is empty!");
+        return;
+    }
+
+    checkoutModal.classList.add("active");
+
+});
+
+cancelCheckout.addEventListener("click", () => {
+
+    checkoutModal.classList.remove("active");
+
+});
+
+placeOrder.addEventListener("click", () => {
+
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const address = document.getElementById("customerAddress").value;
+
+    if(name==="" || phone==="" || address===""){
+        alert("Please fill all details.");
+        return;
+    }
+
+    checkoutModal.classList.remove("active");
+
+    orderPopup.classList.add("show");
+
+    cartItems.innerHTML="";
+    total=0;
+    count=0;
+
+    totalPrice.innerText="₹0";
+    cartCount.innerText="0";
+
+});
+
+continueShopping.addEventListener("click",()=>{
+
+    orderPopup.classList.remove("show");
+
+});
