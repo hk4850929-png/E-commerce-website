@@ -513,3 +513,14 @@ if (checkoutBtn) {
 // ==========================================
 
 console.log("✅ ShopEase Loaded Successfully");
+// ==========================================
+// LOGIN BUTTON
+// ==========================================
+
+const loginBtn = document.querySelector(".login-btn");
+
+if (loginBtn) {
+    loginBtn.addEventListener("click", function () {
+        window.location.href = "login.html";
+    });
+}
